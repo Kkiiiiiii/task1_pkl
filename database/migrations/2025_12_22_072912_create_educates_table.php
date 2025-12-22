@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('educates', function (Blueprint $table) {
             $table->id();
+            $table->string('jenjang_pendidikan');
+            $table->string('nama_sekolah');
+            $table->string('tahun_masuk');
+            $table->string('tahun_lulus');
+            $table->enum('pilihan', ['Formal', 'Non-Formal']);
             $table->timestamps();
         });
     }

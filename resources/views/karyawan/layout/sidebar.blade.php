@@ -211,20 +211,19 @@
         <div class="layout-page">
           <!-- Content wrapper -->
           <div class="content-wrapper">
-            @yield('content')
             <!-- Menu -->
             <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal menu bg-menu-theme flex-grow-0">
               <div class="container-xxl d-flex h-100">
                 <ul class="menu-inner py-1">
                   <!-- Page -->
                   <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
+                    <a href="{{ route('beranda') }}" class="menu-link">
                       <i class="menu-icon tf-icons ti ti-smart-home"></i>
                       <div data-i18n="Page 1">Page 1</div>
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="page-2.html" class="menu-link">
+                    <a href="{{ route('page_2') }}" class="menu-link">
                       <i class="menu-icon tf-icons ti ti-app-window"></i>
                       <div data-i18n="Page 2">Page 2</div>
                     </a>
@@ -237,16 +236,8 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="py-4 mb-6">Page 1</h4>
-              <p>
-                Sample page.<br />For more layout options, <a href="" target="_blank" class="fw-medium"></a> refer
-                <a
-                  href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation//layouts.html"
-                  target="_blank"
-                  class="fw-medium"
-                  >Layout docs</a
-                >.
-              </p>
+            @yield('content')
+
             </div>
             <!--/ Content -->
 
