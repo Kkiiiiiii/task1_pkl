@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('no_handphone');
             $table->string('status_perkawinan');
-            $table->string('jenis_kelamin');
+            $table->enum('jenis_kelamin', ['laki_laki', 'perempuan']);
             $table->string('nama_ibu_kandung');
             $table->string('password');
             $table->rememberToken();

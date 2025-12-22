@@ -10,11 +10,6 @@ class BerandaController extends Controller
     //
     public function index()
     {
-        return view('karyawan.beranda');
-    }
-
-    public function profile()
-    {
-        return view('karyawan.profile');
+        return view('karyawan.dashboard');
     }
 }

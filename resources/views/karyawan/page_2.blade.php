@@ -1,4 +1,4 @@
-@extends('karyawan.layout.sidebar')
+@extends('karyawan.template')
 @section('content')
     <div class="container">
         <h1>Welcome to Our Application</h1>

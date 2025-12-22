@@ -1,4 +1,4 @@
-@extends('karyawan.layout.sidebar')
+@extends('karyawan.template')
 @section('content')
     <div class="container">
         <h4>Selamat Datang, <strong>John</strong></h4>
@@ -37,7 +37,14 @@
             </div>
         </div> --}}
           <div class="card">
-                <h5 class="card-header">Data Pendidikan</h5>
+            <div class="d-flex">
+              <h5 class="card-header">Data Pendidikan</h5>
+              <div class="row">
+               <div class="col-12 mt-4 mb-4 text-end">
+                 <button type="submit" class="btn btn-primary">Tambah Data</button>             
+               </div>
+                   </div>
+            </div>
                 <div class="table-responsive text-nowrap">
                   <table class="table table-hover">
                     <thead>
@@ -256,6 +263,24 @@
                       </tr>
                     </tbody>
                   </table>
+                  <div class="card-footer d-flex justify-content-center mt-4">
+                        <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
               </div>
     </div>
