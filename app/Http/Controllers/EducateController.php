@@ -14,7 +14,7 @@ class EducateController extends Controller
     public function index()
     {
         //
-        return view('karyawan.page2');
+        return view('karyawan.page_2');
     }
 
     /**

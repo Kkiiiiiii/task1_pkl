@@ -223,7 +223,7 @@
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="{{ route('page_2') }}" class="menu-link">
+                    <a href="{{ route('page2') }}" class="menu-link">
                       <i class="menu-icon tf-icons ti ti-app-window"></i>
                       <div data-i18n="Page 2">Page 2</div>
                     </a>
