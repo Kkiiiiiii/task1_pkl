@@ -12,4 +12,9 @@ class BerandaController extends Controller
     {
         return view('karyawan.beranda');
     }
+
+    public function profile()
+    {
+        return view('karyawan.profile');
+    }
 }
