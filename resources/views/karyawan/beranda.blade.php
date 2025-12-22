@@ -42,11 +42,11 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>Project</th>
-                        <th>Client</th>
-                        <th>Users</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                        <th>Jenjang Sekolah</th>
+                        <th>Nama Sekolah</th>
+                        <th>Tahun Masuk</th>
+                        <th>Tahun Lulus</th>
+                        <th>Pilihan</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
