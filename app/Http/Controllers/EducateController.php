@@ -36,8 +36,8 @@ class EducateController extends Controller
         $validasi = $request->validate([
             'jenjang_pendidikan' => 'required',
             'nama_sekolah' => 'required',
-            'tahun_masuk' => 'required|date',
-            'tahun_lulus' => 'required|date',
+            'tahun_masuk' => 'required|int',
+            'tahun_lulus' => 'required|int',
             'pilihan' => 'required|in:Formal,Non-Formal',
         ]);
         Educate::create(

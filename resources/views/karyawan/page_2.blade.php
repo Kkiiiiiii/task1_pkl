@@ -45,7 +45,8 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>
                           <i class="ti ti-brand-vue ti-md text-success me-4"></i>
-                          <span class="fw-medium">{{ $e->jenjang_sekolah }}</span>
+                          <span class="fw-medium">{{ $e->jenjang_pendidikan }}</span>
+                         
                         </td>
                         <td>{{ $e->nama_sekolah }}</td>
                         {{-- <td>
@@ -88,10 +89,8 @@
                               <a class="dropdown-item" href="javascript:void(0);"
                                 ><i class="ti ti-pencil me-1"></i> Edit</a
                               >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                >Delete</a
-                              >
-                               <form action="{{ route('educate-delete', $e->id) }}" method="POST" class="w-auto">
+                          
+                               <form action="{{ route('educate-delete', Crypt::encrypt($e->id)) }}" method="POST" class="w-auto">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-md"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data pendidikan ini?')">
@@ -196,8 +195,8 @@
                             class="select2 form-select"
                             >
                             <option value="">Select</option>
-                            <option value="formal" selected>Formal</option>
-                            <option value="non_formal">Non Formal</option>
+                            <option value="Formal" selected>Formal</option>
+                            <option value="Non-Formal">Non Formal</option>
                           </select>
                         </div>
                         <div class="col-12 text-center">
