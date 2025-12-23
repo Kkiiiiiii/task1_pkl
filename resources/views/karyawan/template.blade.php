@@ -14,7 +14,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title></title>@yield('title')</title>
+      <title>@yield('title')</title>
 
     <meta name="description" content="" />
 
@@ -62,7 +62,7 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
-        @include('karyawan.layout.sidebar')     
+        @include('karyawan.layout.sidebar')
         <!-- / Menu -->
 
         <!-- Layout container -->
@@ -81,7 +81,7 @@
 
             <!-- Footer -->
             @include('karyawan.layout.footer')
-            
+
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

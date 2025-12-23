@@ -1,4 +1,5 @@
 @extends('karyawan.template')
+@section('title', 'Main Profile')
 @section('content')
         <div class="col-md">
                   <div class="card">
@@ -24,11 +25,7 @@
                               type="no_ktp"
                               id="bs-validation-no_ktp"
                               class="form-control"
-                              placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                               required />
-                            <span class="input-group-text cursor-pointer" id="basic-default-password4"
-                              ><i class="ti ti-eye-off"></i
-                            ></span>
                           </div>
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">Please enter your no_ktp.</div>
@@ -97,7 +94,7 @@
                           <input type="file" class="form-control" id="bs-validation-upload-file" required />
                         </div>
                         <div class="mb-6">
-                          <label class="form-label" for="bs-validation-nama_ibu_kandung">nama_ibu_kandung</label>
+                          <label class="form-label" for="bs-validation-nama_ibu_kandung">Nama Ibu Kandung</label>
                           <input
                            type="text"
                             class="form-control"

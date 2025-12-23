@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-     <title>Login Basic - Pages | Vuexy - Bootstrap Admin Template</title>
+     <title>Halaman Login</title>
 
     <meta name="description" content="" />
 
@@ -113,11 +113,11 @@
                         fill="#7367F0" />
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-heading fw-bold">Vuexy</span>
+                  <span class="app-brand-text demo text-heading fw-bold">ESMD</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-1">Welcome to Vuexy! 👋</h4>
+              <h4 class="mb-1">Welcome to ESMD! 👋</h4>
               <p class="mb-6">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-4" action="{{ route('login') }}" method="POST">

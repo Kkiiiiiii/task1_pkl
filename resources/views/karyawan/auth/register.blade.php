@@ -14,7 +14,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Register Basic - Pages | Vuexy - Bootstrap Admin Template</title>
+    <title>Halaman Register</title>
 
     <meta name="description" content="" />
 
@@ -101,7 +101,7 @@
                         fill="#7367F0" />
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-heading fw-bold">Vuexy</span>
+                  <span class="app-brand-text demo text-heading fw-bold">ESMD</span>
                 </a>
               </div>
               <!-- /Logo -->

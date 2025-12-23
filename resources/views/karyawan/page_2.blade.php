@@ -1,4 +1,5 @@
 @extends('karyawan.template')
+@section('title', 'Data Pendidikan')
 @section('content')
     <div class="container">
            @if(session('success'))
@@ -14,97 +15,6 @@
                <div class="col-12 mt-4 mb-4 ">
                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Data</button>
                </div>
-               <div class="modal fade" id="tambahdata" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-simple modal-tambah-data">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      <div class="text-center mb-6">
-                        <h4 class="mb-2">Tambah Data Pendidikan</h4>
-                      </div>
-                      <form id="Form" class="row g-6" method="POST" action="{{ route('educate-store') }}">
-                        @csrf
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
-                          <input
-                            type="text"
-                            id="modaltambahdataJenjang"
-                            name="jenjang_pendidikan"
-                            class="form-control"
-                            placeholder="Jenjang Pendidikan"
-                             />
-                          {{-- <select
-                            id="modaltambahdataJenjang"
-                            name="jenjang_pendidikan"
-                            class="select2 form-select"
-                            multiple>
-                            <option value="">Select</option>
-                            <option value="sd" selected>SD</option>
-                            <option value="smp">SMP</option>
-                            <option value="sma">SMA</option>
-                            <option value="s1">S1</option>
-                            <option value="s2">S2</option>
-                            <option value="s3">S3</option>
-                          </select> --}}
-                        </div>
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataNamaSekolah">Nama Sekolah</label>
-                          <input
-                            type="text"
-                            id="modaltambahdataNamaSekolah"
-                            name="nama_sekolah"
-                            class="form-control"
-                            placeholder="Nama Sekolah"
-                             />
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataTahunMasuk">Tahun Masuk</label>
-                          <input
-                            type="number"
-                            id="modaltambahdataTahunMasuk"
-                            name="tahun_masuk"
-                            class="form-control"
-                            placeholder="-"
-                             />
-                        </div>
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataTahunLulus">Tahun Lulus</label>
-                          <input
-                            type="number"
-                            id="modaltambahdataTahunLulus"
-                            name="tahun_lulus"
-                            class="form-control"
-                            placeholder="-"
-                             />
-                        </div>
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataPilihan">Pilihan</label>
-                          <select
-                            id="modaltambahdataPilihan"
-                            name="pilihan"
-                            class="select2 form-select"
-                            >
-                            <option value="">Select</option>
-                            <option value="formal" selected>Formal</option>
-                            <option value="non_formal">Non Formal</option>
-                          </select>
-                        </div>
-                        <div class="col-12 text-center">
-                          <button type="submit" class="btn btn-primary me-3">Submit</button>
-                          <button
-                            type="reset"
-                            class="btn btn-label-secondary"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            Cancel
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
                 </div>
             </div>
                 <div class="table-responsive text-nowrap">
@@ -202,9 +112,100 @@
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                             </li>
-                        </ul>
+                    </ul>
+                </div>
+            </div>
+               <div class="modal fade" id="tambahdata" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-simple modal-tambah-data">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="text-center mb-6">
+                        <h4 class="mb-2">Tambah Data Pendidikan</h4>
+                      </div>
+                      <form id="Form" class="row g-6" method="POST" action="{{ route('educate-store') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-12 col-md-6">
+                          <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
+                          <input
+                            type="text"
+                            id="modaltambahdataJenjang"
+                            name="jenjang_pendidikan"
+                            class="form-control"
+                            placeholder="Jenjang Pendidikan"
+                             />
+                          {{-- <select
+                            id="modaltambahdataJenjang"
+                            name="jenjang_pendidikan"
+                            class="select2 form-select"
+                            multiple>
+                            <option value="">Select</option>
+                            <option value="sd" selected>SD</option>
+                            <option value="smp">SMP</option>
+                            <option value="sma">SMA</option>
+                            <option value="s1">S1</option>
+                            <option value="s2">S2</option>
+                            <option value="s3">S3</option>
+                          </select> --}}
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <label class="form-label" for="modaltambahdataNamaSekolah">Nama Sekolah</label>
+                          <input
+                            type="text"
+                            id="modaltambahdataNamaSekolah"
+                            name="nama_sekolah"
+                            class="form-control"
+                            placeholder="Nama Sekolah"
+                             />
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                          <label class="form-label" for="modaltambahdataTahunMasuk">Tahun Masuk</label>
+                          <input
+                            type="number"
+                            id="modaltambahdataTahunMasuk"
+                            name="tahun_masuk"
+                            class="form-control"
+                            placeholder="-"
+                             />
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <label class="form-label" for="modaltambahdataTahunLulus">Tahun Lulus</label>
+                          <input
+                            type="number"
+                            id="modaltambahdataTahunLulus"
+                            name="tahun_lulus"
+                            class="form-control"
+                            placeholder="-"
+                             />
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <label class="form-label" for="modaltambahdataPilihan">Pilihan</label>
+                          <select
+                            id="modaltambahdataPilihan"
+                            name="pilihan"
+                            class="select2 form-select"
+                            >
+                            <option value="">Select</option>
+                            <option value="formal" selected>Formal</option>
+                            <option value="non_formal">Non Formal</option>
+                          </select>
+                        </div>
+                        <div class="col-12 text-center">
+                          <button type="submit" class="btn btn-primary me-3">Submit</button>
+                          <button
+                            type="reset"
+                            class="btn btn-label-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                            Cancel
+                          </button>
+                        </div>
+                      </form>
                     </div>
+                  </div>
                 </div>
               </div>
+        </div>
     </div>
 @endsection
