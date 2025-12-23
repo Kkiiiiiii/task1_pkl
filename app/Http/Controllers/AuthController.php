@@ -71,6 +71,12 @@ class AuthController extends Controller
     return redirect()->route('loginIndex')->with('success','Registrasi Berhasil, Silahkan Login!');
     }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('dashboard')->with('success', 'Anda telah logout.');
+    }
+
     /**
      * Display the specified resource.
      */

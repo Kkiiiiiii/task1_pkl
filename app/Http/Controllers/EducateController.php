@@ -23,6 +23,7 @@ class EducateController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -31,6 +32,17 @@ class EducateController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'jenjang_pendidikan' => 'required',
+            'nama_sekolah' => 'required',
+            'tahun_masuk' => 'required|date',
+            'tahun_lulus' => 'required|date',
+            'pilihan' => 'required|in:Formal,Non-Formal',
+        ]);
+
+        Educate::create($request->all());
+
+        return redirect()->route('page2')->with('success', 'Data pendidikan berhasil disimpan.');
     }
 
     /**

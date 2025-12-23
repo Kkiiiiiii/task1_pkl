@@ -16,13 +16,13 @@
                       <div class="text-center mb-6">
                         <h4 class="mb-2">Tambah Data Pendidikan</h4>
                       </div>
-                      <form id="Form" class="row g-6" onsubmit="return false">
+                      <form id="Form" class="row g-6" onsubmit="return false" method="POST" action="{{ route('educate-store') }}">
                         <div class="col-12 col-md-6">
                           <label class="form-label" for="modaltambahdataNamaSekolah">Nama Sekolah</label>
                           <input
                             type="text"
                             id="modaltambahdataNamaSekolah"
-                            name="modaltambahdataNamaSekolah"
+                            name="nama_sekolah"
                             class="form-control"
                             placeholder="Nama Sekolah"
                              />
@@ -33,7 +33,7 @@
                           <input
                             type="number"
                             id="modaltambahdataTahunMasuk"
-                            name="modaltambahdataTahunMasuk"
+                            name="tahun_masuk"
                             class="form-control"
                             placeholder="-"
                              />
@@ -43,7 +43,7 @@
                           <input
                             type="number"
                             id="modaltambahdataTahunLulus"
-                            name="modaltambahdataTahunLulus"
+                            name="tahun_lulus"
                             class="form-control"
                             placeholder="-"
                              />
@@ -52,7 +52,7 @@
                           <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
                           <select
                             id="modaltambahdataJenjang"
-                            name="modaltambahdataJenjang"
+                            name="jenjang_pendidikan"
                             class="select2 form-select"
                             multiple>
                             <option value="">Select</option>
@@ -68,19 +68,13 @@
                           <label class="form-label" for="modaltambahdataPilihan">Pilihan</label>
                           <select
                             id="modaltambahdataPilihan"
-                            name="modaltambahdataPilihan"
+                            name="pilihan"
                             class="select2 form-select"
                             multiple>
                             <option value="">Select</option>
                             <option value="formal" selected>Formal</option>
                             <option value="non_formal">Non Formal</option>
                           </select>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-check form-switch">
-                            <input type="checkbox" class="form-check-input" id="editBillingAddress" />
-                            <label for="editBillingAddress" class="switch-label">Use as a billing address?</label>
-                          </div>
                         </div>
                         <div class="col-12 text-center">
                           <button type="submit" class="btn btn-primary me-3">Submit</button>
@@ -213,7 +207,6 @@
                           </div>
                         </td>
                       </tr>
-
                     </tbody>
                   </table>
                   <div class="card-footer d-flex justify-content-center mt-4">
