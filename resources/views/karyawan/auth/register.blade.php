@@ -106,25 +106,25 @@
                             <div class="mb-6">
                                 <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
-                                    placeholder="Enter Nama" autofocus />
+                                    placeholder="Masukan Nama Lengkap" autofocus />
                             </div>
 
                             <div class="mb-6">
                                 <label for="no_ktp" class="form-label">No KTP</label>
                                 <input type="number" class="form-control" id="no_ktp" name="no_ktp"
-                                    placeholder="Enter No KTP" />
+                                    placeholder="Masukan No KTP" />
                             </div>
 
                             <div class="mb-6">
                                 <label for="alamat" class="form-label">Alamat</label>
-                                <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Enter your email"
+                                <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukan Nama Lengkap"
                                     rows="3"></textarea>
                             </div>
 
                             <div class="mb-6">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Enter your email" />
+                                    placeholder="Masukan Email" />
                             </div>
 
                             <div class="mb-6">
@@ -132,7 +132,7 @@
                                 <div class="input-group">
                                     <span class="input-group-text">ID (+62)</span>
                                     <input type="text" id="no_handphone" name="no_handphone"
-                                        class="form-control phone-number-mask" placeholder="202 555 0111"
+                                        class="form-control phone-number-mask" placeholder="Masukan No HP"
                                         value="202 555 0111" />
                                 </div>
                             </div>
@@ -141,12 +141,12 @@
                                 <label for="status_perkawinan" class="form-label">Status Perkawinan</label>
                                 <div class="form-check mb-2">
                                     <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan"
-                                        placeholder="Enter status_perkawinan"/>
+                                       required checked/>
                                 <label class="form-check-label" for="status_perkawinan">Menikah</label>
                           </div>
                                 <div class="form-check mb-2">
                                     <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan"
-                                        placeholder="Enter your status_perkawinan"/>
+                                        required checked/>
                                 <label class="form-check-label" for="status_perkawinan">Belum Menikah</label>
                           </div>
                             </div>
@@ -177,7 +177,7 @@
                          <div class="mb-6">
                                 <label for="nama_ibu_kandung" class="form-label">Nama Ibu Kandung</label>
                                 <input type="text" class="form-control" id="nama_ibu_kandung" name="nama_ibu_kandung"
-                                    placeholder="Enter Nama Ibu" />
+                                    placeholder="Masukan Nama Ibu" />
                             </div>
 
                             <div class="mb-6 form-password-toggle">

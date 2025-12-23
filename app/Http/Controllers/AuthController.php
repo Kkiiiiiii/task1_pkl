@@ -24,7 +24,8 @@ class AuthController extends Controller
 
     public function profile()
     {
-        return view('karyawan.main_profile');
+        $data['user'] = User::all();
+        return view('karyawan.main_profile', $data);
     }
 
     /**
@@ -58,7 +59,7 @@ class AuthController extends Controller
         'no_ktp' => 'required',
         'no_handphone' => 'required',
         'alamat' => 'required',
-        'status_perkawinan' => 'required',
+        'status_perkawinan' => 'required|in:menikah,belum_menikah',
         'jenis_kelamin' => 'required',
         'nama_ibu_kandung' => 'required',
         'password' => 'required|confirmed',

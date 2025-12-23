@@ -2,6 +2,8 @@
 @section('title','Dashboard')
 @section('content')
     <div class="container">
-        <h4>Selamat Datang, <strong></strong></h4>
+        @if(Auth::check())
+        <h4>Selamat Datang, <strong>{{ Auth::user()->nama_lengkap }}</strong></h4>
+        @endif
     </div>
 @endsection

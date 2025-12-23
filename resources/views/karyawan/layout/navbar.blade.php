@@ -92,8 +92,10 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <h6 class="mb-0">John Doe</h6>
-                            <small class="text-muted">Admin</small>
+                            @if(Auth::check())
+                            <h6 class="mb-0">{{ Auth::user()->nama_lengkap}}</h6>
+                            @endif
+                            {{-- <small class="text-muted">Admin</small> --}}
                           </div>
                         </div>
                       </a>
@@ -126,12 +128,14 @@
                       <div class="dropdown-divider my-1 mx-n2"></div>
                     </li>
                     <li>
+                        @if(Auth::check())
                       <div class="d-grid px-2 pt-2 pb-1">
-                        <a class="btn btn-sm btn-danger d-flex" href="">
+                        <a class="btn btn-sm btn-danger d-flex" href="{{ route('logout') }}">
                           <small class="align-middle">Logout</small>
                           <i class="ti ti-logout ms-2 ti-14px"></i>
                         </a>
                       </div>
+                      @endif
                     </li>
                   </ul>
                 </li>
