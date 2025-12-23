@@ -140,12 +140,12 @@
                             <div class="mb-6">
                                 <label for="status_perkawinan" class="form-label">Status Perkawinan</label>
                                 <div class="form-check mb-2">
-                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan"
+                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan" value="menikah"
                                        required checked/>
                                 <label class="form-check-label" for="status_perkawinan">Menikah</label>
                           </div>
                                 <div class="form-check mb-2">
-                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan"
+                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan" value="belum_menikah"
                                         required checked/>
                                 <label class="form-check-label" for="status_perkawinan">Belum Menikah</label>
                           </div>
@@ -159,6 +159,7 @@
                               id="jenis_kelamin"
                               name="jenis_kelamin"
                               class="form-check-input"
+                              value="laki-laki"
                               required
                               checked />
                             <label class="form-check-label" for="jenis_kelamin">Laki laki</label>
@@ -169,6 +170,7 @@
                               id="jenis_kelamin"
                               name="jenis_kelamin"
                               class="form-check-input"
+                                value="perempuan"
                               required />
                             <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
                           </div>
@@ -186,6 +188,16 @@
                                     <input type="password" id="password" class="form-control" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password" />
+                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 form-password-toggle">
+                                <label class="form-label" for="password">Password Confirm</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password_confirmation"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password"/>
                                     <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                             </div>

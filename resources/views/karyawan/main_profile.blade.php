@@ -1,7 +1,6 @@
 @extends('karyawan.template')
 @section('title', 'Main Profile')
 @section('content')
-<h4>Login Dulu..</h4>
 @if (Auth::check())
 <div class="col-md">
           <div class="card">
@@ -124,6 +123,7 @@
                     class="form-control"
                     id="bs-validation-nama_ibu_kandung"
                     name="bs-validation-nama_ibu_kandung"
+                    value="{{ Auth::user()->nama_ibu_kandung }}"
                     required></input>
                 </div>
                 <div class="row">
