@@ -54,16 +54,27 @@ class AuthController extends Controller
     {
         $request->validate([
         'email' => 'required',
-        // 'username' => 'required|unique:users',
+        'nama_lengkap' => 'required',
+        'no_ktp' => 'required',
+        'no_handphone' => 'required',
+        'alamat' => 'required',
+        'status_perkawinan' => 'required',
+        'jenis_kelamin' => 'required',
+        'nama_ibu_kandung' => 'required',
         'password' => 'required|confirmed',
     ]);
 
     $user = User::create([
-        'name' => $request->name,
-        'nohp' => $request->nohp,
-        'username' => $request->username,
+        'nama_lengkap' => $request->nama_lengkap,
+        'no_ktp' => $request->no_ktp,
+        'alamat' => $request->alamat,
+        'email' => $request->email,
+        'no_handphone' => $request->no_handphone,
+        'status_perkawinan' => $request->status_perkawinan,
+        'jenis_kelamin' => $request->jenis_kelamin,
+        'nama_ibu_kandung' => $request->nama_ibu_kandung,
         'password' => bcrypt($request->password),
-        'role' => 'member',
+
     ]);
 
     Auth::login($user);

@@ -31,6 +31,20 @@
                           <div class="invalid-feedback">Please enter your no_ktp.</div>
                         </div>
 
+
+                        <div class="mb-6">
+                            <label class="form-label" for="bs-validation-alamat">Alamat</label>
+                            <input
+                            type="Alamat"
+                            id="bs-validation-Alamat"
+                            class="form-control"
+                            placeholder="john.doe"
+                            aria-label="john.doe"
+                            required />
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please enter a valid Alamat</div>
+                        </div>
+
                         <div class="mb-6">
                           <label class="form-label" for="bs-validation-email">Email</label>
                           <input
@@ -45,20 +59,21 @@
                         </div>
 
                         <div class="mb-6">
-                          <label class="form-label" for="bs-validation-alamat">Alamat</label>
-                          <input
-                            type="Alamat"
-                            id="bs-validation-Alamat"
-                            class="form-control"
-                            placeholder="john.doe"
-                            aria-label="john.doe"
-                            required />
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please enter a valid Alamat</div>
+                          <label class="form-label" for="bs-validation-no_hp">No Handphone</label>
+                          <div class="input-group">
+                            <span class="input-group-text">ID (+62)</span>
+                            <input
+                              type="text"
+                              id="modalEditUserPhone"
+                              name="no_handphone"
+                              class="form-control phone-number-mask"
+                              placeholder="202 555 0111"
+                              value="202 555 0111" />
+                          </div>
                         </div>
 
                         <div class="mb-6">
-                          <label class="form-label" for="bs-validation-status_perkawina">Status Perkawinan</label>
+                          <label class="form-label" for="bs-validation-status_perkawinan">Status Perkawinan</label>
                           <input
                             type="text"
                             class="form-control flatpickr-validation"

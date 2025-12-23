@@ -11,6 +11,7 @@ Route::get('/auth/login', [AuthController::class, 'loginIndex'])->name('loginInd
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register/post', [AuthController::class, 'regis'])->name('regis-post');
 Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 Route::post('/educate/store', [EducateController::class, 'store'])->name('educate-store');
 Route::post('/educate/delete', [EducateController::class, 'destroy'])->name('educate-delete');
