@@ -16,7 +16,8 @@
                       <div class="text-center mb-6">
                         <h4 class="mb-2">Tambah Data Pendidikan</h4>
                       </div>
-                      <form id="Form" class="row g-6" onsubmit="return false" method="POST" action="{{ route('educate-store') }}">
+                      <form id="Form" class="row g-6" method="POST" action="{{ route('educate-store') }}">
+                        @csrf
                         <div class="col-12 col-md-6">
                           <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
                           <input
@@ -112,64 +113,15 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td>
-                          <i class="ti ti-brand-angular ti-md text-danger me-4"></i>
-                          <span class="fw-medium">Angular Project</span>
-                        </td>
-                        <td>Albert Cook</td>
-                        <td>
-                          <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller">
-                              <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson">
-                              <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker">
-                              <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="ti ti-dots-vertical"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="ti ti-pencil me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="ti ti-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                        @foreach ($educates as $e)
                       <tr>
                         <td>
                           <i class="ti ti-brand-vue ti-md text-success me-4"></i>
-                          <span class="fw-medium">VueJs Project</span>
+                          <span class="fw-medium">{{ $e->jenjang_sekolah }}</span>
                         </td>
-                        <td>Trevor Baker</td>
-                        <td>
+                        <td>{{ $e->nama_sekolah }}</td>
+                        <td>{{ $e->pilihan }}</td>
+                        {{-- <td>
                           <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
                             <li
                               data-bs-toggle="tooltip"
@@ -196,8 +148,9 @@
                               <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
                             </li>
                           </ul>
-                        </td>
-                        <td><span class="badge bg-label-info me-1">Scheduled</span></td>
+                        </td> --}}
+                        <td><span class="badge bg-label-info me-1">{{ $e->tahun_masuk }}</span></td>
+                        <td><span class="badge bg-label-info me-1">{{ $e->tahun_lulus }}</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -215,6 +168,7 @@
                         </td>
                       </tr>
                     </tbody>
+                    @endforeach
                   </table>
                   <div class="card-footer d-flex justify-content-center mt-4">
                         <nav aria-label="Page navigation">

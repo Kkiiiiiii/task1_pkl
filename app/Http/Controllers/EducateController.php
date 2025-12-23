@@ -14,7 +14,8 @@ class EducateController extends Controller
     public function index()
     {
         //
-        return view('karyawan.page_2');
+        $educates = Educate::all();
+        return view('karyawan.page_2', compact('educates'));
     }
 
     /**
@@ -39,8 +40,8 @@ class EducateController extends Controller
             'tahun_lulus' => 'required|date',
             'pilihan' => 'required|in:Formal,Non-Formal',
         ]);
-
         Educate::create($request->all());
+        dd($request->all());
 
         return redirect()->route('page2')->with('success', 'Data pendidikan berhasil disimpan.');
     }
