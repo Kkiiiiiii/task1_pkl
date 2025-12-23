@@ -16,30 +16,7 @@
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">Please enter your name.</div>
                         </div>
-                        <div class="mb-6">
-                          <label class="form-label" for="bs-validation-alamat">Alamat</label>
-                          <input
-                            type="Alamat"
-                            id="bs-validation-Alamat"
-                            class="form-control"
-                            placeholder="john.doe"
-                            aria-label="john.doe"
-                            required />
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please enter a valid Alamat</div>
-                        </div>
-                        <div class="mb-6">
-                          <label class="form-label" for="bs-validation-email">Email</label>
-                          <input
-                            type="email"
-                            id="bs-validation-email"
-                            class="form-control"
-                            placeholder="john.doe"
-                            aria-label="john.doe"
-                            required />
-                          <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please enter a valid email</div>
-                        </div>
+
                         <div class="mb-6 form-password-toggle">
                           <label class="form-label" for="bs-validation-no_ktp">No KTP</label>
                           <div class="input-group input-group-merge">
@@ -56,15 +33,42 @@
                           <div class="valid-feedback">Looks good!</div>
                           <div class="invalid-feedback">Please enter your no_ktp.</div>
                         </div>
+
                         <div class="mb-6">
-                          <label class="form-label" for="bs-validation-dob">DOB</label>
+                          <label class="form-label" for="bs-validation-email">Email</label>
+                          <input
+                            type="email"
+                            id="bs-validation-email"
+                            class="form-control"
+                            placeholder="john.doe"
+                            aria-label="john.doe"
+                            required />
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please enter a valid email</div>
+                        </div>
+
+                        <div class="mb-6">
+                          <label class="form-label" for="bs-validation-alamat">Alamat</label>
+                          <input
+                            type="Alamat"
+                            id="bs-validation-Alamat"
+                            class="form-control"
+                            placeholder="john.doe"
+                            aria-label="john.doe"
+                            required />
+                          <div class="valid-feedback">Looks good!</div>
+                          <div class="invalid-feedback">Please enter a valid Alamat</div>
+                        </div>
+
+                        <div class="mb-6">
+                          <label class="form-label" for="bs-validation-status_perkawina">Status Perkawinan</label>
                           <input
                             type="text"
                             class="form-control flatpickr-validation"
-                            id="bs-validation-dob"
+                            id="bs-validation-status_perkawina"
                             required />
                           <div class="valid-feedback">Looks good!</div>
-                          <div class="invalid-feedback">Please Enter Your DOB</div>
+                          <div class="invalid-feedback">Please Enter Status Perkawinan</div>
                         </div>
                         <div class="mb-6">
                           <label class="d-block form-label">Jenis Kelamin</label>
@@ -127,5 +131,4 @@
                     </div>
                   </div>
                 </div>
-
 @endsection
