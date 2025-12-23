@@ -117,23 +117,6 @@
                             name="bs-validation-nama_ibu_kandung"
                             required></input>
                         </div>
-                        <div class="mb-6">
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="bs-validation-checkbox" required />
-                            <label class="form-check-label" for="bs-validation-checkbox"
-                              >Agree to our terms and conditions</label
-                            >
-                            <div class="invalid-feedback">You must agree before submitting.</div>
-                          </div>
-                        </div>
-                        <div class="mb-6">
-                          <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="bootstrapValidationSwitch" required />
-                            <label class="form-check-label" for="bootstrapValidationSwitch"
-                              >Send me related emails</label
-                            >
-                          </div>
-                        </div>
                         <div class="row">
                           <div class="col-12">
                             <button type="submit" class="btn btn-primary">Submit</button>
