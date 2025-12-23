@@ -33,21 +33,20 @@ class EducateController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
+        $validasi = $request->validate([
             'jenjang_pendidikan' => 'required',
             'nama_sekolah' => 'required',
             'tahun_masuk' => 'required|date',
             'tahun_lulus' => 'required|date',
             'pilihan' => 'required|in:Formal,Non-Formal',
         ]);
-        // Educate::create($request->all());
         Educate::create(
             [
-                'jenjang_pendidikan' => $request->jenjang_pendidikan,
-                'nama_sekolah' => $request->nama_sekolah,
-                'tahun_masuk' => $request->tahun_masuk,
-                'tahun_lulus' => $request->tahun_lulus,
-                'pilihan' => $request->pilihan,
+                'jenjang_pendidikan' => $validasi['jenjang_pendidikan'],
+                'nama_sekolah' => $validasi['nama_sekolah'],
+                'tahun_masuk' => $validasi['tahun_masuk'],
+                'tahun_lulus' => $validasi['tahun_lulus'],
+                'pilihan' => $validasi['pilihan'],
             ]
             );
 
@@ -84,5 +83,8 @@ class EducateController extends Controller
     public function destroy(Educate $educate)
     {
         //
+        $educate = Educate::findOrFail($educate->id);
+        $educate->delete();
+        return redirect()->route('page2')->with('success', 'Data pendidikan berhasil dihapus.');
     }
 }

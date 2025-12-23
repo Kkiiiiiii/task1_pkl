@@ -13,3 +13,4 @@ Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 Route::post('/educate/store', [EducateController::class, 'store'])->name('educate-store');
+Route::post('/educate/delete', [EducateController::class, 'destroy'])->name('educate-delete');

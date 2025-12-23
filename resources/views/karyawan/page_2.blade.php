@@ -170,8 +170,15 @@
                                 ><i class="ti ti-pencil me-1"></i> Edit</a
                               >
                               <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="ti ti-trash me-1"></i> Delete</a
+                                >Delete</a
                               >
+                               <form action="{{ route('educate-delete', $e->id) }}" method="POST" class="w-auto">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-md"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data pendidikan ini?')">
+                                        <i class="ti ti-trash me-1"></i> Delete
+                                    </button>
+                                </form>
                             </div>
                           </div>
                         </td>
