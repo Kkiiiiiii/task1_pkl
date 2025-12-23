@@ -126,7 +126,7 @@
               <form id="formAuthentication" class="mb-4" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-6">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="email" class="form-label">Email</label>
                   <input
                     type="text"
                     class="form-control"
