@@ -18,6 +18,29 @@
                       </div>
                       <form id="Form" class="row g-6" onsubmit="return false" method="POST" action="{{ route('educate-store') }}">
                         <div class="col-12 col-md-6">
+                          <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
+                          <input
+                            type="text"
+                            id="modaltambahdataJenjang"
+                            name="jenjang_pendidikan"
+                            class="form-control"
+                            placeholder="Jenjang Pendidikan"
+                             />
+                          {{-- <select
+                            id="modaltambahdataJenjang"
+                            name="jenjang_pendidikan"
+                            class="select2 form-select"
+                            multiple>
+                            <option value="">Select</option>
+                            <option value="sd" selected>SD</option>
+                            <option value="smp">SMP</option>
+                            <option value="sma">SMA</option>
+                            <option value="s1">S1</option>
+                            <option value="s2">S2</option>
+                            <option value="s3">S3</option>
+                          </select> --}}
+                        </div>
+                        <div class="col-12 col-md-6">
                           <label class="form-label" for="modaltambahdataNamaSekolah">Nama Sekolah</label>
                           <input
                             type="text"
@@ -49,28 +72,12 @@
                              />
                         </div>
                         <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
-                          <select
-                            id="modaltambahdataJenjang"
-                            name="jenjang_pendidikan"
-                            class="select2 form-select"
-                            multiple>
-                            <option value="">Select</option>
-                            <option value="sd" selected>SD</option>
-                            <option value="smp">SMP</option>
-                            <option value="sma">SMA</option>
-                            <option value="s1">S1</option>
-                            <option value="s2">S2</option>
-                            <option value="s3">S3</option>
-                          </select>
-                        </div>
-                        <div class="col-12 col-md-6">
                           <label class="form-label" for="modaltambahdataPilihan">Pilihan</label>
                           <select
                             id="modaltambahdataPilihan"
                             name="pilihan"
                             class="select2 form-select"
-                            multiple>
+                            >
                             <option value="">Select</option>
                             <option value="formal" selected>Formal</option>
                             <option value="non_formal">Non Formal</option>
