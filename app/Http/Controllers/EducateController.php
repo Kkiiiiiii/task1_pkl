@@ -40,8 +40,16 @@ class EducateController extends Controller
             'tahun_lulus' => 'required|date',
             'pilihan' => 'required|in:Formal,Non-Formal',
         ]);
-        Educate::create($request->all());
-        dd($request->all());
+        // Educate::create($request->all());
+        Educate::create(
+            [
+                'jenjang_pendidikan' => $request->jenjang_pendidikan,
+                'nama_sekolah' => $request->nama_sekolah,
+                'tahun_masuk' => $request->tahun_masuk,
+                'tahun_lulus' => $request->tahun_lulus,
+                'pilihan' => $request->pilihan,
+            ]
+            );
 
         return redirect()->route('page2')->with('success', 'Data pendidikan berhasil disimpan.');
     }

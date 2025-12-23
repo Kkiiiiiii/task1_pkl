@@ -1,6 +1,12 @@
 @extends('karyawan.template')
 @section('content')
     <div class="container">
+           @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
         <div class="card">
             <div class="d-flex">
               <h5 class="card-header">Data Pendidikan</h5>
@@ -105,22 +111,24 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
+                        <th>No</th>
                         <th>Jenjang Sekolah</th>
                         <th>Nama Sekolah</th>
                         <th>Tahun Masuk</th>
                         <th>Tahun Lulus</th>
                         <th>Pilihan</th>
+                        <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                         @foreach ($educates as $e)
                       <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td>
                           <i class="ti ti-brand-vue ti-md text-success me-4"></i>
                           <span class="fw-medium">{{ $e->jenjang_sekolah }}</span>
                         </td>
                         <td>{{ $e->nama_sekolah }}</td>
-                        <td>{{ $e->pilihan }}</td>
                         {{-- <td>
                           <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
                             <li
@@ -151,6 +159,7 @@
                         </td> --}}
                         <td><span class="badge bg-label-info me-1">{{ $e->tahun_masuk }}</span></td>
                         <td><span class="badge bg-label-info me-1">{{ $e->tahun_lulus }}</span></td>
+                        <td>{{ $e->pilihan }}</td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

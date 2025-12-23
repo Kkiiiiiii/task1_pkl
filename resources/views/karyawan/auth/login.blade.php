@@ -64,7 +64,20 @@
 
   <body>
     <!-- Content -->
+    @if(session('success'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ session('success') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              @endif
 
+              {{-- Error message --}}
+              @if(session('error'))
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      {{ session('error') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+    @endif
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-6">
@@ -107,7 +120,8 @@
               <h4 class="mb-1">Welcome to Vuexy! 👋</h4>
               <p class="mb-6">Please sign-in to your account and start the adventure</p>
 
-              <form id="formAuthentication" class="mb-4" action="" method="GET">
+              <form id="formAuthentication" class="mb-4" action="{{ route('login') }}" method="POST">
+                @csrf
                 <div class="mb-6">
                   <label for="email" class="form-label">Email or Username</label>
                   <input
