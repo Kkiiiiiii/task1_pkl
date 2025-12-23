@@ -94,7 +94,7 @@
                                             fill="#7367F0" />
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-heading fw-bold">ESMD</span>
+                                <span class="app-brand-text demo text-heading fw-bold">ESMS</span>
                             </a>
                         </div>
                         <!-- /Logo -->

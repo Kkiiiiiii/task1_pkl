@@ -40,20 +40,20 @@
 
           <ul class="menu-inner py-1">
             <!-- Page -->
-            <li class="menu-item active">
-              <a href="{{ route('dashboard') }}" class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+              <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Page 1">Dashboard</div>
               </a>
             </li>
-            <li class="menu-item">
-              <a href="{{ request()->routeIs('page2') ? 'active' : '' }}" class="menu-link {{ request()->routeIs('page2') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('page2') ? 'active' : '' }}">
+              <a href="{{ route('page2') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Page 2">Education</div>
               </a>
             </li>
-            <li class="menu-item">
-              <a href="{{ request()->routeIs('profile') ? 'active' : '' }}" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('profile') ? 'active' : '' }}">
+              <a href="{{ route('profile') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-app-window"></i>
                 <div data-i18n="Page 2">Main Profile</div>
               </a>

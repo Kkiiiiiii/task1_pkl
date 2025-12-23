@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Educate;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class EducateController extends Controller
 {
@@ -34,7 +35,7 @@ class EducateController extends Controller
     {
         //
         $validasi = $request->validate([
-            'jenjang_pendidikan' => 'required',
+            'jenjang_pendidikan' => 'required|in:sd,smp,sma,smk,d3,s1,s2,s3,kursus',
             'nama_sekolah' => 'required',
             'tahun_masuk' => 'required|int',
             'tahun_lulus' => 'required|int',
@@ -72,19 +73,30 @@ class EducateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Educate $educate)
+    public function update(Request $request, $id)
     {
-        //
+        $validasi = $request->validate([
+            'jenjang_pendidikan' => 'required|in:sd,smp,sma,smk,d3,s1,s2,s3,kursus',
+            'nama_sekolah' => 'required',
+            'tahun_masuk' => 'required|int',
+            'tahun_lulus' => 'required|int',
+            'pilihan' => 'required|in:Formal,Non-Formal',
+        ]);
+
+        $id = Crypt::decrypt($id);
+        $educate = Educate::findOrFail($id);
+        $educate->update($validasi);
+        return redirect()->route('page2')->with('success', 'Data pendidikan berhasil diubah.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Educate $educate)
+    public function destroy($id)
     {
         //
-        $educate = Educate::findOrFail($educate->id);
-        $educate->delete();
+        $id = Crypt::decrypt($id);
+        Educate::findOrFail($id)->delete();
         return redirect()->route('page2')->with('success', 'Data pendidikan berhasil dihapus.');
     }
 }

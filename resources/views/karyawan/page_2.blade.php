@@ -1,219 +1,202 @@
 @extends('karyawan.template')
 @section('title', 'Data Pendidikan')
 @section('content')
-    <div class="container">
-           @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-     @if ($errors->any())
-         <div class="alert alert-danger">
-             <ul>
-                 @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                 @endforeach
-             </ul>
-         </div>
-     @endif
-        <div class="card">
-            <div class="d-flex">
-              <h5 class="card-header">Data Pendidikan</h5>
-              <div class="row">
-               <div class="col-12 mt-4 mb-4 ">
-                 <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Data</button>
-               </div>
-                </div>
-            </div>
-                <div class="table-responsive text-nowrap">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Jenjang Sekolah</th>
-                        <th>Nama Sekolah</th>
-                        <th>Tahun Masuk</th>
-                        <th>Tahun Lulus</th>
-                        <th>Pilihan</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        @foreach ($educates as $e)
-                      <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>
-                          <i class="ti ti-brand-vue ti-md text-success me-4"></i>
-                          <span class="fw-medium">{{ $e->jenjang_pendidikan }}</span>
-                         
-                        </td>
-                        <td>{{ $e->nama_sekolah }}</td>
-                        {{-- <td>
-                          <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller">
-                              <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson">
-                              <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker">
-                              <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td> --}}
-                        <td><span class="badge bg-label-info me-1">{{ $e->tahun_masuk }}</span></td>
-                        <td><span class="badge bg-label-info me-1">{{ $e->tahun_lulus }}</span></td>
-                        <td>{{ $e->pilihan }}</td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="ti ti-dots-vertical"></i>
+
+<div class="container">
+
+@if(session('success'))
+<div class="alert alert-success alert-dismissible fade show">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+@endif
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5 class="card-header">Data Pendidikan</h5>
+        <button class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Data</button>
+    </div>
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Jenjang Sekolah</th>
+                    <th>Nama Sekolah</th>
+                    <th>Tahun Masuk</th>
+                    <th>Tahun Lulus</th>
+                    <th>Pilihan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($educates as $e)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td class="fw-medium">{{ $e->jenjang_pendidikan }}</td>
+                    <td>{{ $e->nama_sekolah }}</td>
+                    <td><span class="badge bg-label-info">{{ $e->tahun_masuk }}</span></td>
+                    <td><span class="badge bg-label-info">{{ $e->tahun_lulus }}</span></td>
+                    <td>{{ $e->pilihan }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="ti ti-dots-vertical"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="ti ti-pencil me-1"></i> Edit</a
-                              >
-                          
-                               <form action="{{ route('educate-delete', Crypt::encrypt($e->id)) }}" method="POST" class="w-auto">
+                                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editData{{ $e->id }}">
+                                    <i class="ti ti-pencil me-1"></i> Edit
+                                </button>
+                                <form action="{{ route('educate-delete', Crypt::encrypt($e->id)) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-md"
-                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data pendidikan ini?')">
+                                    <button class="dropdown-item text-danger" onclick="return confirm('Yakin?')">
                                         <i class="ti ti-trash me-1"></i> Delete
                                     </button>
                                 </form>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                    @endforeach
-                  </table>
-                  <div class="card-footer d-flex justify-content-center mt-4">
-                        <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-               <div class="modal fade" id="tambahdata" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-simple modal-tambah-data">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      <div class="text-center mb-6">
-                        <h4 class="mb-2">Tambah Data Pendidikan</h4>
-                      </div>
-                      <form id="Form" class="row g-6" method="POST" action="{{ route('educate-store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataJenjang">Jenjang Pendidikan</label>
-                          <input
-                            type="text"
-                            id="modaltambahdataJenjang"
-                            name="jenjang_pendidikan"
-                            class="form-control"
-                            placeholder="Jenjang Pendidikan"
-                             />
-                          {{-- <select
-                            id="modaltambahdataJenjang"
-                            name="jenjang_pendidikan"
-                            class="select2 form-select"
-                            multiple>
-                            <option value="">Select</option>
-                            <option value="sd" selected>SD</option>
-                            <option value="smp">SMP</option>
-                            <option value="sma">SMA</option>
-                            <option value="s1">S1</option>
-                            <option value="s2">S2</option>
-                            <option value="s3">S3</option>
-                          </select> --}}
                         </div>
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataNamaSekolah">Nama Sekolah</label>
-                          <input
-                            type="text"
-                            id="modaltambahdataNamaSekolah"
-                            name="nama_sekolah"
-                            class="form-control"
-                            placeholder="Nama Sekolah"
-                             />
+                    </td>
+                </tr>
+
+                <div class="modal fade" id="editData{{ $e->id }}" tabindex="-1">
+                    <div class="modal-dialog modal-lg modal-simple">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                                <h4 class="text-center mb-4">Edit Data Pendidikan</h4>
+
+                                <form method="POST" action="{{ route('educate-update', Crypt::encrypt($e->id)) }}">
+                                    @csrf
+
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Jenjang Pendidikan</label>
+                                            <select name="jenjang_pendidikan" class="form-select">
+                                                <option value="sd" {{ $e->jenjang_pendidikan=='SD'?'selected':'' }}>SD</option>
+                                                <option value="smp" {{ $e->jenjang_pendidikan=='SMP'?'selected':'' }}>SMP</option>
+                                                <option value="sma" {{ $e->jenjang_pendidikan=='SMA'?'selected':'' }}>SMA</option>
+                                                <option value="smk" {{ $e->jenjang_pendidikan=='SMK'?'selected':'' }}>SMK</option>
+                                                <option value="s1" {{ $e->jenjang_pendidikan=='S1'?'selected':'' }}>S1</option>
+                                                <option value="s2" {{ $e->jenjang_pendidikan=='S2'?'selected':'' }}>S2</option>
+                                                <option value="s3" {{ $e->jenjang_pendidikan=='S3'?'selected':'' }}>S3</option>
+                                                <option value="kursus" {{ $e->jenjang_pendidikan=='Kursus'?'selected':'' }}>Kursus</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Nama Sekolah</label>
+                                            <input type="text" name="nama_sekolah" class="form-control" value="{{ $e->nama_sekolah }}">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Tahun Masuk</label>
+                                            <input type="number" name="tahun_masuk" class="form-control" value="{{ $e->tahun_masuk }}">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Tahun Lulus</label>
+                                            <input type="number" name="tahun_lulus" class="form-control" value="{{ $e->tahun_lulus }}">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label">Pilihan</label>
+                                            <select name="pilihan" class="form-select">
+                                                <option value="Formal" {{ $e->pilihan=='Formal'?'selected':'' }}>Formal</option>
+                                                <option value="Non-Formal" {{ $e->pilihan=='Non-Formal'?'selected':'' }}>Non Formal</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12 text-center mt-3">
+                                            <button class="btn btn-primary">Update</button>
+                                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="tambahdata" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-simple">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                <h4 class="text-center mb-4">Tambah Data Pendidikan</h4>
+
+                <form method="POST" action="{{ route('educate-store') }}">
+                    @csrf
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Jenjang Pendidikan</label>
+                            <select name="jenjang_pendidikan" class="form-select">
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SMA">SMA</option>
+                                <option value="SMK">SMK</option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
+                                <option value="Kursus">Kursus</option>
+                            </select>
                         </div>
 
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataTahunMasuk">Tahun Masuk</label>
-                          <input
-                            type="number"
-                            id="modaltambahdataTahunMasuk"
-                            name="tahun_masuk"
-                            class="form-control"
-                            placeholder="-"
-                             />
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Sekolah</label>
+                            <input type="text" name="nama_sekolah" class="form-control">
                         </div>
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataTahunLulus">Tahun Lulus</label>
-                          <input
-                            type="number"
-                            id="modaltambahdataTahunLulus"
-                            name="tahun_lulus"
-                            class="form-control"
-                            placeholder="-"
-                             />
+
+                        <div class="col-md-6">
+                            <label class="form-label">Tahun Masuk</label>
+                            <input type="number" name="tahun_masuk" class="form-control">
                         </div>
-                        <div class="col-12 col-md-6">
-                          <label class="form-label" for="modaltambahdataPilihan">Pilihan</label>
-                          <select
-                            id="modaltambahdataPilihan"
-                            name="pilihan"
-                            class="select2 form-select"
-                            >
-                            <option value="">Select</option>
-                            <option value="Formal" selected>Formal</option>
-                            <option value="Non-Formal">Non Formal</option>
-                          </select>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Tahun Lulus</label>
+                            <input type="number" name="tahun_lulus" class="form-control">
                         </div>
-                        <div class="col-12 text-center">
-                          <button type="submit" class="btn btn-primary me-3">Submit</button>
-                          <button
-                            type="reset"
-                            class="btn btn-label-secondary"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            Cancel
-                          </button>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Pilihan</label>
+                            <select name="pilihan" class="form-select">
+                                <option value="Formal">Formal</option>
+                                <option value="Non-Formal">Non Formal</option>
+                            </select>
                         </div>
-                      </form>
+
+                        <div class="col-12 text-center mt-3">
+                            <button class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+
+                </form>
+            </div>
         </div>
     </div>
+</div>
+
+</div>
+
 @endsection

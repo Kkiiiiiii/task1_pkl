@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class AuthController extends Controller
 {
@@ -80,13 +81,13 @@ class AuthController extends Controller
 
     Auth::login($user);
 
-    return redirect()->route('loginIndex')->with('success','Registrasi Berhasil, Silahkan Login!');
+    return redirect()->route('dashboard')->with('success','Registrasi Berhasil, Silahkan Login!');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('dashboard')->with('success', 'Anda telah logout.');
+        return redirect('/auth/login')->with('success', 'Anda telah logout.');
     }
 
     /**
@@ -108,9 +109,23 @@ class AuthController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Auth $auth)
+    public function update(Request $request, $id)
     {
-        //
+        $validasi = $request->validate([
+            'nama_lengkap' => 'required|string',
+            'no_ktp' => 'required|string',
+            'alamat' => 'required|string',
+            'email' => 'required|string',
+            'no_handphone' => 'required|string',
+            'status_perkawinan' => 'required|string',
+            'jenis_kelamin' => 'required|string',
+            'nama_ibu_kandung' => 'required|string',
+            'foto' => 'required|string'
+        ]);
+
+        $id = Crypt::decrypt($id);
+        User::where('id', $id)->update($validasi);
+        return redirect()->route('profile')->with('success', 'Profile berhasil diupdate.');
     }
 
     /**

@@ -3,16 +3,27 @@
 @section('content')
 @if (Auth::check())
 <div class="col-md">
+  @if ($errors->any())
+         <div class="alert alert-danger">
+             <ul>
+                 @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                 @endforeach
+             </ul>
+         </div>
+     @endif
           <div class="card">
             <h5 class="card-header">Profile</h5>
             <div class="card-body">
-              <form class="needs-validation" novalidate>
+              <form class="needs-validation" method="POST" action="{{ route('edit-profile', Crypt::encrypt(Auth::user()->id)) }}" enctype="multipart/form-data">
+                @csrf
                 <div class="mb-6">
                   <label class="form-label" for="bs-validation-name">Nama Lengkap</label>
                   <input
                     type="text"
                     class="form-control"
                     id="bs-validation-name"
+                    name="nama_lengkap"
                     value="{{ Auth::user()->nama_lengkap }}"                 
                     required />
                   <div class="valid-feedback">Looks good!</div>
@@ -25,7 +36,8 @@
                     <input
                       type="no_ktp"
                       id="bs-validation-no_ktp"
-                    value="{{ Auth::user()->no_ktp }}"                 
+                    value="{{ Auth::user()->no_ktp }}"   
+                    name="no_ktp"              
                       class="form-control"
                       required />
                   </div>
@@ -40,6 +52,7 @@
                     type="Alamat"
                     id="bs-validation-Alamat"
                     class="form-control"
+                    name="alamat"
                     value="{{ Auth::user()->alamat }}"                 
                     required />
                     <div class="valid-feedback">Looks good!</div>
@@ -52,6 +65,7 @@
                     type="email"
                     id="bs-validation-email"
                     class="form-control"
+                    name="email"
                     value="{{ Auth::user()->email }}"                                    
                     required />
                   <div class="valid-feedback">Looks good!</div>
@@ -73,14 +87,16 @@
                 </div>
 
                 <div class="mb-6">
-                  <label class="form-label" for="bs-validation-status_perkawinan">Status Perkawinan</label>
-                  <input
-                    type="text"
-                    class="form-control flatpickr-validation"
-                    id="bs-validation-status_perkawina"
-                    value="{{ Auth::user()->status_perkawinan }}"                 
-
-                    required />
+                  <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan" value="menikah"
+                                       required checked/>
+                                <label class="form-check-label" for="status_perkawinan">Menikah</label>
+                          </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan" value="belum_menikah"
+                                        required checked/>
+                                <label class="form-check-label" for="status_perkawinan">Belum Menikah</label>
+                          </div>
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Please Enter Status Perkawinan</div>
                 </div>
@@ -89,10 +105,10 @@
                   <div class="form-check mb-2">
                     <input
                       type="radio"
-                      id="bs-validation-radio-male"
-                      name="bs-validation-radio"
+                      id="laki-laki"
+                      name="jenis_kelamin"
                       class="form-check-input"
-                      value="laki_laki"
+                      value="laki-laki"
                     {{ Auth::user()->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
 
 
@@ -122,7 +138,7 @@
                    type="text"
                     class="form-control"
                     id="bs-validation-nama_ibu_kandung"
-                    name="bs-validation-nama_ibu_kandung"
+                    name="nama_ibu_kandung"
                     value="{{ Auth::user()->nama_ibu_kandung }}"
                     required></input>
                 </div>

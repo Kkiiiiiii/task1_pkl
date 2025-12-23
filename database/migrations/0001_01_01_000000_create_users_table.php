@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('nama_ibu_kandung');
             $table->string('password');
+            $table->string('foto');
             $table->rememberToken();
             $table->timestamps();
         });
