@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auth;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -10,7 +11,7 @@ class AuthController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function loginIndex()
     {
         //
         return view('karyawan.auth.login');
@@ -32,7 +33,8 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validasi = $request->validate([
-            'username' => 'required|string',
+            'username' => 'string',
+            'email' => 'required|string',
             'password' => 'required|string',
         ]);
 
@@ -42,15 +44,31 @@ class AuthController extends Controller
             return redirect()->route('dashboard')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama_lengkap . '!');
         }
 
-        return redirect()->route('index')->with('error', 'Username atau Password salah.');
+        return redirect()->route('loginIndex')->with('error', 'Username atau Password salah.');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function regis(Request $request)
     {
-        //
+        $request->validate([
+        'email' => 'required',
+        // 'username' => 'required|unique:users',
+        'password' => 'required|confirmed',
+    ]);
+
+    $user = User::create([
+        'name' => $request->name,
+        'nohp' => $request->nohp,
+        'username' => $request->username,
+        'password' => bcrypt($request->password),
+        'role' => 'member',
+    ]);
+
+    Auth::login($user);
+
+    return redirect()->route('loginIndex')->with('success','Registrasi Berhasil, Silahkan Login!');
     }
 
     /**

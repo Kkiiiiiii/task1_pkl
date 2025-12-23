@@ -7,6 +7,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BerandaController::class, 'index'])->name('dashboard');
 Route::get('/page-2', [EducateController::class, 'index'])->name('page2');
-Route::get('/auth/login', [AuthController::class, 'index'])->name('login');
+Route::get('/auth/login', [AuthController::class, 'loginIndex'])->name('loginIndex');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
