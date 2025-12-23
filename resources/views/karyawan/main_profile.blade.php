@@ -2,7 +2,7 @@
 @section('content')
         <div class="col-md">
                   <div class="card">
-                    <h5 class="card-header">Bootstrap Validation</h5>
+                    <h5 class="card-header">Profile</h5>
                     <div class="card-body">
                       <form class="needs-validation" novalidate>
                         <div class="mb-6">

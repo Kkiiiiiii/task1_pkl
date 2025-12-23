@@ -49,7 +49,13 @@
             <li class="menu-item">
               <a href="{{ route('page2') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-app-window"></i>
-                <div data-i18n="Page 2">Page 2</div>
+                <div data-i18n="Page 2">Education</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="{{ route('profile') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-app-window"></i>
+                <div data-i18n="Page 2">Main Profile</div>
               </a>
             </li>
           </ul>
