@@ -29,9 +29,20 @@ class AuthController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function login(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt($validasi)) {
+            $user = Auth::user();
+
+            return redirect()->route('dashboard')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama_lengkap . '!');
+        }
+
+        return redirect()->route('index')->with('error', 'Username atau Password salah.');
     }
 
     /**
