@@ -13,6 +13,7 @@ class Educate extends Model
         'tahun_masuk',
         'tahun_lulus',
         'pilihan',
+        'users_id',
     ];
 
     public function user()

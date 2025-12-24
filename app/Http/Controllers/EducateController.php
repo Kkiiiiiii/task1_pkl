@@ -16,7 +16,7 @@ class EducateController extends Controller
     public function index()
     {
         //
-        $educates = Educate::where('users_id',auth()->user()->id)->paginate(4);
+        $educates = Educate::where('users_id',auth()->user()->id)->paginate(1);
         return view('karyawan.page_2', compact('educates'));
     }
 
@@ -41,7 +41,10 @@ class EducateController extends Controller
             'tahun_masuk' => 'required|int',
             'tahun_lulus' => 'required|int',
             'pilihan' => 'required|in:Formal,Non-Formal',
+            // 'users_id' => 'required',
         ]);
+
+        $validasi['users_id'] = Auth::id();
 
         Educate::create(
             [
@@ -50,6 +53,7 @@ class EducateController extends Controller
                 'tahun_masuk' => $validasi['tahun_masuk'],
                 'tahun_lulus' => $validasi['tahun_lulus'],
                 'pilihan' => $validasi['pilihan'],
+                'users_id' => $validasi['users_id'],
             ]
             );
 
