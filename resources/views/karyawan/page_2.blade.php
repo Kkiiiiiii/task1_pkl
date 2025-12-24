@@ -60,7 +60,7 @@
                                 </button>
                                 <form action="{{ route('educate-delete', Crypt::encrypt($e->id)) }}" method="POST">
                                     @csrf
-                                    <button class="dropdown-item text-danger" onclick="return confirm('Yakin?')">
+                                    <button class="dropdown-item text-danger" onclick="return confirm('Yakin Hapus Data Pendidikan {{ $e->nama_sekolah }}' + '?')">
                                         <i class="ti ti-trash me-1"></i> Delete
                                     </button>
                                 </form>
@@ -84,14 +84,14 @@
                                         <div class="col-md-6">
                                             <label class="form-label">Jenjang Pendidikan</label>
                                             <select name="jenjang_pendidikan" class="form-select">
-                                                <option value="sd" {{ $e->jenjang_pendidikan=='SD'?'selected':'' }}>SD</option>
-                                                <option value="smp" {{ $e->jenjang_pendidikan=='SMP'?'selected':'' }}>SMP</option>
-                                                <option value="sma" {{ $e->jenjang_pendidikan=='SMA'?'selected':'' }}>SMA</option>
-                                                <option value="smk" {{ $e->jenjang_pendidikan=='SMK'?'selected':'' }}>SMK</option>
-                                                <option value="s1" {{ $e->jenjang_pendidikan=='S1'?'selected':'' }}>S1</option>
-                                                <option value="s2" {{ $e->jenjang_pendidikan=='S2'?'selected':'' }}>S2</option>
-                                                <option value="s3" {{ $e->jenjang_pendidikan=='S3'?'selected':'' }}>S3</option>
-                                                <option value="kursus" {{ $e->jenjang_pendidikan=='Kursus'?'selected':'' }}>Kursus</option>
+                                                <option value="SD" {{ $e->jenjang_pendidikan=='SD'?'selected':'' }}>SD</option>
+                                                <option value="SMP" {{ $e->jenjang_pendidikan=='SMP'?'selected':'' }}>SMP</option>
+                                                <option value="SMA" {{ $e->jenjang_pendidikan=='SMA'?'selected':'' }}>SMA</option>
+                                                <option value="SMK" {{ $e->jenjang_pendidikan=='SMK'?'selected':'' }}>SMK</option>
+                                                <option value="S1" {{ $e->jenjang_pendidikan=='S1'?'selected':'' }}>S1</option>
+                                                <option value="S2" {{ $e->jenjang_pendidikan=='S2'?'selected':'' }}>S2</option>
+                                                <option value="S3" {{ $e->jenjang_pendidikan=='S3'?'selected':'' }}>S3</option>
+                                                <option value="Kursus" {{ $e->jenjang_pendidikan=='Kursus'?'selected':'' }}>Kursus</option>
                                             </select>
                                         </div>
 

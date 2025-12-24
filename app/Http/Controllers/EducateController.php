@@ -35,7 +35,7 @@ class EducateController extends Controller
     {
         //
         $validasi = $request->validate([
-            'jenjang_pendidikan' => 'required|in:sd,smp,sma,smk,d3,s1,s2,s3,kursus',
+            'jenjang_pendidikan' => 'required|in:SD,SMP,SMA,SMK,S1,S2,S3,Kursus',
             'nama_sekolah' => 'required',
             'tahun_masuk' => 'required|int',
             'tahun_lulus' => 'required|int',
@@ -76,7 +76,7 @@ class EducateController extends Controller
     public function update(Request $request, $id)
     {
         $validasi = $request->validate([
-            'jenjang_pendidikan' => 'required|in:sd,smp,sma,smk,d3,s1,s2,s3,kursus',
+            'jenjang_pendidikan' => 'required|in:SD,SMP,SMA,SMK,D3,S1,S2,S3,Kursus',
             'nama_sekolah' => 'required',
             'tahun_masuk' => 'required|int',
             'tahun_lulus' => 'required|int',

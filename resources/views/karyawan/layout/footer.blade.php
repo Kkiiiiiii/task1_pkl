@@ -14,8 +14,7 @@
             href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/"
             target="_blank"
             class="footer-link me-4"
-            >Documentation</a
-        >
+            >Documentation</a>
         </div>
     </div>
     </div>

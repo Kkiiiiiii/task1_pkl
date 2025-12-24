@@ -24,7 +24,7 @@
                     class="form-control"
                     id="bs-validation-name"
                     name="nama_lengkap"
-                    value="{{ Auth::user()->nama_lengkap }}"                 
+                    value="{{ Auth::user()->nama_lengkap }}"
                     required />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Please enter your name.</div>
@@ -36,8 +36,8 @@
                     <input
                       type="no_ktp"
                       id="bs-validation-no_ktp"
-                    value="{{ Auth::user()->no_ktp }}"   
-                    name="no_ktp"              
+                    value="{{ Auth::user()->no_ktp }}"
+                    name="no_ktp"
                       class="form-control"
                       required />
                   </div>
@@ -53,7 +53,7 @@
                     id="bs-validation-Alamat"
                     class="form-control"
                     name="alamat"
-                    value="{{ Auth::user()->alamat }}"                 
+                    value="{{ Auth::user()->alamat }}"
                     required />
                     <div class="valid-feedback">Looks good!</div>
                     <div class="invalid-feedback">Please enter a valid Alamat</div>
@@ -66,7 +66,7 @@
                     id="bs-validation-email"
                     class="form-control"
                     name="email"
-                    value="{{ Auth::user()->email }}"                                    
+                    value="{{ Auth::user()->email }}"
                     required />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Please enter a valid email</div>
@@ -128,10 +128,10 @@
                     <label class="form-check-label" for="perempuan">Perempuan</label>
                   </div>
                 </div>
-                <div class="mb-6">
+                {{-- <div class="mb-6">
                   <label class="form-label" for="bs-validation-upload-file">Profile pic</label>
-                  <input type="file" class="form-control" id="bs-validation-upload-file" required />
-                </div>
+                  <input type="file" class="form-control" id="bs-validation-upload-file" />
+                </div> --}}
                 <div class="mb-6">
                   <label class="form-label" for="bs-validation-nama_ibu_kandung">Nama Ibu Kandung</label>
                   <input

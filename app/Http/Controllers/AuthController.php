@@ -120,11 +120,18 @@ class AuthController extends Controller
             'status_perkawinan' => 'required|string',
             'jenis_kelamin' => 'required|string',
             'nama_ibu_kandung' => 'required|string',
-            'foto' => 'required|string'
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $id = Crypt::decrypt($id);
+
+        if($request->hasFile('foto')){
+            $fotoPath = $request->file('foto')->store('profile_photos', 'public');
+            $validasi['foto'] = $fotoPath;
+        }
+
         User::where('id', $id)->update($validasi);
+
         return redirect()->route('profile')->with('success', 'Profile berhasil diupdate.');
     }
 
