@@ -54,34 +54,40 @@ class AuthController extends Controller
      */
     public function regis(Request $request)
     {
-        $request->validate([
+        $validasi = $request->validate([
+        'nama_lengkap' => 'required|string',
         'email' => 'required',
-        'nama_lengkap' => 'required',
         'no_ktp' => 'required',
         'no_handphone' => 'required',
         'alamat' => 'required',
         'status_perkawinan' => 'required|in:menikah,belum_menikah',
         'jenis_kelamin' => 'required',
         'nama_ibu_kandung' => 'required',
+        'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
         'password' => 'required|confirmed',
     ]);
 
-    $user = User::create([
-        'nama_lengkap' => $request->nama_lengkap,
-        'no_ktp' => $request->no_ktp,
-        'alamat' => $request->alamat,
-        'email' => $request->email,
-        'no_handphone' => $request->no_handphone,
-        'status_perkawinan' => $request->status_perkawinan,
-        'jenis_kelamin' => $request->jenis_kelamin,
-        'nama_ibu_kandung' => $request->nama_ibu_kandung,
-        'password' => bcrypt($request->password),
+     if ($request->hasFile('profile_photos')) {
+            $validasi['foto'] = $request->file('foto')->store('profile_photos', 'public');
+        }
 
-    ]);
+    $user = User::create(
+        $validasi
+        // 'nama_lengkap' => $request->nama_lengkap,
+        // 'no_ktp' => $request->no_ktp,
+        // 'alamat' => $request->alamat,
+        // 'email' => $request->email,
+        // 'no_handphone' => $request->no_handphone,
+        // 'status_perkawinan' => $request->status_perkawinan,
+        // 'jenis_kelamin' => $request->jenis_kelamin,
+        // 'nama_ibu_kandung' => $request->nama_ibu_kandung,
+        // 'password' => bcrypt($request->password),
+    );
+
 
     Auth::login($user);
 
-    return redirect()->route('dashboard')->with('success','Registrasi Berhasil, Silahkan Login!');
+    return redirect()->route('loginIndex')->with('success','Registrasi Berhasil, Silahkan Login!');
     }
 
     public function logout(Request $request)
@@ -125,7 +131,7 @@ class AuthController extends Controller
 
         $id = Crypt::decrypt($id);
 
-        if($request->hasFile('foto')){
+        if($request->hasFile('profile_photos')){
             $fotoPath = $request->file('foto')->store('profile_photos', 'public');
             $validasi['foto'] = $fotoPath;
         }

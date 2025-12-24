@@ -128,10 +128,12 @@
                     <label class="form-check-label" for="perempuan">Perempuan</label>
                   </div>
                 </div>
-                {{-- <div class="mb-6">
+                <div class="mb-6">
                   <label class="form-label" for="bs-validation-upload-file">Profile pic</label>
-                  <input type="file" class="form-control" id="bs-validation-upload-file" />
-                </div> --}}
+                  <img src="{{ asset('storage/' . Auth::user()->foto) }}" width="100" class="mb-2">
+                  <input type="file" class="form-control" id="bs-validation-upload-file" name="foto"/>
+                </div>
+
                 <div class="mb-6">
                   <label class="form-label" for="bs-validation-nama_ibu_kandung">Nama Ibu Kandung</label>
                   <input

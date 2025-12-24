@@ -26,6 +26,7 @@ class User extends Authenticatable
         'status_perkawinan',
         'jenis_kelamin',
         'nama_ibu_kandung',
+        'foto',
         'password',
     ];
 
