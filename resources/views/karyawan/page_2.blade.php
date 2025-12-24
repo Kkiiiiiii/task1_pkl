@@ -23,10 +23,36 @@
 
         <div class="card">
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-header">Data Pendidikan</h5>
-                <button class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Data</button>
-                <button class="btn btn-primary me-4" >Export</button>
+    <h5 class="card-header mb-0">Data Pendidikan</h5>
+
+    <div class="d-flex align-items-center gap-2 me-4">
+        <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#tambahdata">
+            Tambah Data
+        </button>
+
+        <div class="dropdown">
+            <button
+                class="btn p-0 dropdown-toggle hide-arrow"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="ti ti-dots-vertical"></i>
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-end">
+                <a href="{{ route('export.pdf') }}" class="dropdown-item">
+                    Cetak PDF
+                </a>
+                <a href="{{ route('export.csv') }}" class="dropdown-item">
+                    Unduh Excel
+                </a>
             </div>
+        </div>
+    </div>
+</div>
+
 
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">

@@ -59,12 +59,48 @@ class EducateController extends Controller
         return redirect()->route('page2')->with('success', 'Data pendidikan berhasil disimpan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Educate $educate)
+    public function ExportPdf()
     {
-        //
+        $data = Educate::all();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('karyawan.export_pdf', compact('data'));
+        return $pdf->download('data.pdf');
+
+
+    }
+
+    public function ExportCsv()
+    {
+        $data = Educate::all();
+        $filename = 'data.csv';
+        $headers = array(
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=$filename",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        );
+
+        $columns = array('Jenjang Pendidikan', 'Nama Sekolah', 'Tahun Masuk', 'Tahun Lulus', 'Pilihan');
+        $callback = function() use($data, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($data as $educate) {
+                $row['Jenjang Pendidikan']  = $educate->jenjang_pendidikan;
+                $row['Nama Sekolah']    = $educate->nama_sekolah;
+                $row['Tahun Masuk']    = $educate->tahun_masuk;
+                $row['Tahun Lulus']  = $educate->tahun_lulus;
+                $row['Pilihan']  = $educate->pilihan;
+
+                fputcsv($file, array($row['Jenjang Pendidikan'], $row['Nama Sekolah'], $row['Tahun Masuk'], $row['Tahun Lulus'], $row['Pilihan']));
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+
     }
 
     /**

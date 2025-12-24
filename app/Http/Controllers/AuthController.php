@@ -131,15 +131,6 @@ class AuthController extends Controller
         return redirect()->route('profile')->with('success', 'Profile berhasil diupdate.');
     }
 
-    public function pdf()
-    {
-
-    }
-
-    public function csv()
-    {
-
-    }
 
     /**
      * Remove the specified resource from storage.
