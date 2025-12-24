@@ -73,19 +73,7 @@ class AuthController extends Controller
             $validasi['foto'] = $path;
         }
 
-    $user = User::create(
-        $validasi
-        // 'nama_lengkap' => $request->nama_lengkap,
-        // 'no_ktp' => $request->no_ktp,
-        // 'alamat' => $request->alamat,
-        // 'email' => $request->email,
-        // 'no_handphone' => $request->no_handphone,
-        // 'status_perkawinan' => $request->status_perkawinan,
-        // 'jenis_kelamin' => $request->jenis_kelamin,
-        // 'nama_ibu_kandung' => $request->nama_ibu_kandung,
-        // 'password' => bcrypt($request->password),
-    );
-
+    $user = User::create($validasi);
 
     Auth::login($user);
 
@@ -135,7 +123,7 @@ class AuthController extends Controller
 
         if($request->hasFile('foto')){
             $fotoPath = $request->file('foto')->store('profile_photos', 'public');
-            $validasi['profile_photos'] = $fotoPath;
+            $validasi['foto'] = $fotoPath;
         }
 
         User::where('id', $id)->update($validasi);
