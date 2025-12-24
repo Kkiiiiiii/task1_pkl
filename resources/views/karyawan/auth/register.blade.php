@@ -51,8 +51,7 @@
         <div class="authentication-inner py-6" style="max-width: 900px;">
             <div class="card">
                 <div class="card-body p-4">
-                    <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
-                    <h4 class="mb-2 text-center">Register Akun</h4>
+                    <h4 class="mb-2 text-center">Registrasi</h4>
                     <p class="mb-5 text-center">Lengkapi data dengan benar</p>
 
                     <form action="{{ route('regis-post') }}" method="POST" enctype="multipart/form-data">

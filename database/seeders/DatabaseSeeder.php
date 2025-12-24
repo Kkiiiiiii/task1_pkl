@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'nama_lengkap' => 'min',
             'no_ktp' => '1234567890123456',
             'alamat' => 'Jl. Bronco No. 1',
-            'email' => 'admin@example.com',
+            'email' => 'amin@example.com',
             'no_handphone' => '081234567890',
             'status_perkawinan' => 'belum_menikah',
             'jenis_kelamin' => 'laki-laki',

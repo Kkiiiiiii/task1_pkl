@@ -19,7 +19,7 @@ Route::middleware(['Autentikasi'])->group(function () {
     Route::post('/educate/update/{id}', [EducateController::class, 'update'])->name('educate-update');
     Route::post('/profile/update/{id}', [AuthController::class, 'update'])->name('edit-profile');
     Route::post('/educate/delete/{id}', [EducateController::class, 'destroy'])->name('educate-delete');
-    Route::get('/export/pdf', [EducateController::class, 'exportPdf'])->name('export.pdf');
-    Route::get('/export/csv', [EducateController::class, 'exportCsv'])->name('export.csv');
+    Route::get('/export/pdf', [EducateController::class, 'ExportPdf'])->name('export.pdf');
+    Route::get('/export/csv', [EducateController::class, 'ExportCsv'])->name('export.csv');
 
 });

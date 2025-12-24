@@ -25,6 +25,9 @@
             <div class="d-flex justify-content-between align-items-center">
     <h5 class="card-header mb-0">Data Pendidikan</h5>
 
+    <div class="d-flex justify-content-between align-items-center">
+    <h5 class="card-header mb-0">Data Pendidikan</h5>
+
     <div class="d-flex align-items-center gap-2 me-4">
         <button
             class="btn btn-primary"
@@ -35,22 +38,28 @@
 
         <div class="dropdown">
             <button
-                class="btn p-0 dropdown-toggle hide-arrow"
+                class="btn btn-outline-secondary dropdown-toggle"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <i class="ti ti-dots-vertical"></i>
+                Export
             </button>
 
-            <div class="dropdown-menu dropdown-menu-end">
-                <a href="{{ route('export.pdf') }}" class="dropdown-item">
-                    Cetak PDF
-                </a>
-                <a href="{{ route('export.csv') }}" class="dropdown-item">
-                    Unduh Excel
-                </a>
-            </div>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a href="{{ route('export.pdf') }}" class="dropdown-item">
+                        <i class="ti ti-file-text me-1"></i> PDF
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('export.csv') }}" class="dropdown-item">
+                        <i class="ti ti-file-spreadsheet me-1"></i> Excel
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
+
 </div>
 
 
@@ -183,9 +192,11 @@
                                 </div>
                             </div>
                         @endforeach
-                        {{ $educates->links() }}
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-3 d-flex justify-content-center">
+           {{ $educates->links()}}
             </div>
         </div>
 

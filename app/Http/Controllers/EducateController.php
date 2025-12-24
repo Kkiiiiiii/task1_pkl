@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Educate;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -16,7 +17,7 @@ class EducateController extends Controller
     public function index()
     {
         //
-        $educates = Educate::where('users_id',auth()->user()->id)->paginate(1);
+        $educates = Educate::where('users_id',auth()->user()->id)->paginate(2);
         return view('karyawan.page_2', compact('educates'));
     }
 
@@ -61,10 +62,10 @@ class EducateController extends Controller
 
     public function ExportPdf()
     {
-        $data = Educate::all();
-        $pdf = app('dompdf.wrapper');
-        $pdf->loadView('karyawan.export_pdf', compact('data'));
-        return $pdf->download('data.pdf');
+        $educates = Educate::where('users_id', auth()->id())->get();
+        $pdf = Pdf::loadView('karyawan.export_pdf', compact('educates'))->setPaper('A4','potrait');
+
+        return $pdf->download('data-pendidikan.pdf');
 
 
     }
@@ -72,7 +73,7 @@ class EducateController extends Controller
     public function ExportCsv()
     {
         $data = Educate::all();
-        $filename = 'data.csv';
+        $filename = 'data-pendidikan.csv';
         $headers = array(
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=$filename",
