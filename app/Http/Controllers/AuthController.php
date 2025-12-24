@@ -56,13 +56,13 @@ class AuthController extends Controller
     {
         $validasi = $request->validate([
         'nama_lengkap' => 'required|string',
-        'email' => 'required',
-        'no_ktp' => 'required',
-        'no_handphone' => 'required',
-        'alamat' => 'required',
+        'email' => 'required|string|unique:users,email',
+        'no_ktp' => 'required|string|unique:users,no_ktp',
+        'no_handphone' => 'required|string',
+        'alamat' => 'required|string',
         'status_perkawinan' => 'required|in:menikah,belum_menikah',
-        'jenis_kelamin' => 'required',
-        'nama_ibu_kandung' => 'required',
+        'jenis_kelamin' => 'required|string',
+        'nama_ibu_kandung' => 'required|string',
         'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
         'password' => 'required|confirmed',
     ]);

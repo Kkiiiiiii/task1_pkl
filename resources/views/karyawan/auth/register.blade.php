@@ -127,7 +127,7 @@
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Masukan Email" />
+                                    placeholder="Masukan Email"/>
                             </div>
 
                             <div class="col-md-6">
@@ -137,8 +137,13 @@
                                     <input type="text" id="no_handphone" name="no_handphone"
                                         class="form-control phone-number-mask" placeholder="Masukan No HP"
                                          />
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
+                        <div class="col-md-6">
+                            <label for="nama_ibu_kandung" class="form-label">Nama Ibu Kandung</label>
+                            <input type="text" class="form-control" id="nama_ibu_kandung" name="nama_ibu_kandung"
+                                placeholder="Masukan Nama Ibu" />
+                        </div>
                         </div>
 
                         <div class="row g-6">
@@ -170,11 +175,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label for="nama_ibu_kandung" class="form-label">Nama Ibu Kandung</label>
-                                <input type="text" class="form-control" id="nama_ibu_kandung" name="nama_ibu_kandung"
-                                    placeholder="Masukan Nama Ibu" />
-                            </div>
 
 
                             <div class="col-md-6 form-password-toggle">

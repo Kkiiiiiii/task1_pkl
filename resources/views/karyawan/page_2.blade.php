@@ -29,7 +29,7 @@
 
     <div class="table-responsive text-nowrap">
         <table class="table table-hover">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>No</th>
                     <th>Jenjang Sekolah</th>

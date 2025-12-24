@@ -129,8 +129,8 @@
                   </div>
                 </div>
                 <div class="mb-6">
-                  <label class="form-label" for="bs-validation-upload-file">Profile pic</label>
-                  <img src="{{ asset('storage/' . Auth::user()->foto) }}" width="100" class="mb-2">
+                  <label class="form-label" for="bs-validation-upload-file">Foto Profile</label>
+                  <img src="{{ asset('storage/' . Auth::user()->foto) }}" width="100" class="mb-2 img-thumbnail rounded-circle border"/>
                   <input type="file" class="form-control" id="bs-validation-upload-file" name="foto"/>
                 </div>
 
