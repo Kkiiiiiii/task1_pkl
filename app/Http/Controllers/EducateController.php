@@ -41,7 +41,6 @@ class EducateController extends Controller
             'tahun_masuk' => 'required|int',
             'tahun_lulus' => 'required|int',
             'pilihan' => 'required|in:Formal,Non-Formal',
-            // 'users_id' => 'required',
         ]);
 
         $validasi['users_id'] = Auth::id();
