@@ -68,11 +68,12 @@
          </div>
      @endif
     <!-- Content -->
+
     <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-6">
             <!-- Register Card -->
-            <div class="card">
+            <div class="card mb-6">
                 <div class="card-body">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center mb-6">
@@ -99,103 +100,109 @@
                     </div>
                     <!-- /Logo -->
                     <h4 class="mb-1">Adventure starts here 🚀</h4>
-                    <p class="mb-6">Make your app management easy and fun!</p>
+                    <p class="mb-6">Make your app management easy!</p>
 
                     <form id="formAuthentication" class="mb-6" action="{{ route('regis-post') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-6">
-                            <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
-                                placeholder="Masukan Nama Lengkap" autofocus />
-                        </div>
 
-                        <div class="mb-6">
-                            <label for="no_ktp" class="form-label">No KTP</label>
-                            <input type="number" class="form-control" id="no_ktp" name="no_ktp"
-                                placeholder="Masukan No KTP" />
-                        </div>
+                        <div class="row g-6">
+                            <div class="col-md-6">
+                                <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
+                                    placeholder="Masukan Nama Lengkap" autofocus />
+                            </div>
 
-                        <div class="mb-6">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukan Nama Lengkap"
-                                rows="3"></textarea>
-                        </div>
+                            <div class="col-md-6">
+                                <label for="no_ktp" class="form-label">No KTP</label>
+                                <input type="number" class="form-control" id="no_ktp" name="no_ktp"
+                                    placeholder="Masukan No KTP" />
+                            </div>
 
-                        <div class="mb-6">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="email" name="email"
-                                placeholder="Masukan Email" />
-                        </div>
+                            <div class="col-md-6">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukan Nama Lengkap"
+                                    rows="3"></textarea>
+                            </div>
 
-                        <div class="mb-6">
-                            <label class="form-label" for="no_handphone">No Handphone</label>
-                            <div class="input-group">
-                                <span class="input-group-text">ID (+62)</span>
-                                <input type="text" id="no_handphone" name="no_handphone"
-                                    class="form-control phone-number-mask" placeholder="Masukan No HP"
-                                     />
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Masukan Email" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label" for="no_handphone">No Handphone</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">ID (+62)</span>
+                                    <input type="text" id="no_handphone" name="no_handphone"
+                                        class="form-control phone-number-mask" placeholder="Masukan No HP"
+                                         />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="mb-6">
-                            <label for="status_perkawinan" class="form-label">Status Perkawinan</label>
-                            <div class="form-check mb-2">
-                                <input type="radio" class="form-check-input" id="status_perkawinan"
-                                    name="status_perkawinan" value="menikah" required checked />
-                                <label class="form-check-label" for="status_perkawinan">Menikah</label>
+                        <div class="row g-6">
+                            <div class="col-md-6">
+                                <label for="status_perkawinan" class="form-label">Status Perkawinan</label>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" id="status_perkawinan"
+                                        name="status_perkawinan" value="menikah" required checked />
+                                    <label class="form-check-label" for="status_perkawinan">Menikah</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="radio" class="form-check-input" id="status_perkawinan"
+                                        name="status_perkawinan" value="belum_menikah" required checked />
+                                    <label class="form-check-label" for="status_perkawinan">Belum Menikah</label>
+                                </div>
                             </div>
-                            <div class="form-check mb-2">
-                                <input type="radio" class="form-check-input" id="status_perkawinan"
-                                    name="status_perkawinan" value="belum_menikah" required checked />
-                                <label class="form-check-label" for="status_perkawinan">Belum Menikah</label>
-                            </div>
-                        </div>
 
-                        <div class="mb-6">
-                            <label class="d-block form-label">Jenis Kelamin</label>
-                            <div class="form-check mb-2">
-                                <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                    class="form-check-input" value="laki-laki" required checked />
-                                <label class="form-check-label" for="jenis_kelamin">Laki laki</label>
+                            <div class="col-md-6">
+                                <label class="d-block form-label">Jenis Kelamin</label>
+                                <div class="form-check mb-2">
+                                    <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
+                                        class="form-check-input" value="laki-laki" required checked />
+                                    <label class="form-check-label" for="jenis_kelamin">Laki laki</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
+                                        class="form-check-input" value="perempuan" required />
+                                    <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                    class="form-check-input" value="perempuan" required />
-                                <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
+
+                            <div class="col-md-6">
+                                <label for="nama_ibu_kandung" class="form-label">Nama Ibu Kandung</label>
+                                <input type="text" class="form-control" id="nama_ibu_kandung" name="nama_ibu_kandung"
+                                    placeholder="Masukan Nama Ibu" />
                             </div>
-                        </div>
 
-                        <div class="mb-6">
-                            <label for="nama_ibu_kandung" class="form-label">Nama Ibu Kandung</label>
-                            <input type="text" class="form-control" id="nama_ibu_kandung" name="nama_ibu_kandung"
-                                placeholder="Masukan Nama Ibu" />
-                        </div>
 
-                        <div class="mb-6">
-                            <label class="form-label" for="foto">Profile pic</label>
-                            <input type="file" class="form-control" id="foto" name="foto"/>
-                        </div>
-
-                        <div class="mb-6 form-password-toggle">
-                            <label class="form-label" for="password">Password</label>
-                            <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                            <div class="col-md-6 form-password-toggle">
+                                <label class="form-label" for="password">Password</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password" />
+                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-6 form-password-toggle">
-                            <label class="form-label" for="password">Password Confirm</label>
-                            <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control"
-                                    name="password_confirmation"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                            </div>
+                            <div class="col-md-6 form-password-toggle">
+                                <label class="form-label" for="password">Password Confirm</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control"
+                                        name="password_confirmation"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        aria-describedby="password" />
+                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    </div>
+                                </div>
                         </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="foto">Profile pic</label>
+                                    <input type="file" class="form-control" id="foto" name="foto"/>
+                                </div>
+
 
                         <div class="my-8">
                             <div class="form-check mb-0 ms-2">

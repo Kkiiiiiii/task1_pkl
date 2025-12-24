@@ -41,6 +41,7 @@ class EducateController extends Controller
             'tahun_lulus' => 'required|int',
             'pilihan' => 'required|in:Formal,Non-Formal',
         ]);
+
         Educate::create(
             [
                 'jenjang_pendidikan' => $validasi['jenjang_pendidikan'],
