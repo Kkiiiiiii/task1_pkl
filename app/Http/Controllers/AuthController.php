@@ -67,8 +67,10 @@ class AuthController extends Controller
         'password' => 'required|confirmed',
     ]);
 
-     if ($request->hasFile('profile_photos')) {
-            $validasi['foto'] = $request->file('foto')->store('profile_photos', 'public');
+            if ($request->hasFile('foto')) {
+            // Simpan foto dan ambil path lengkap
+            $path = $request->file('foto')->store('profile_photos', 'public');
+            $validasi['foto'] = $path;
         }
 
     $user = User::create(
@@ -131,9 +133,9 @@ class AuthController extends Controller
 
         $id = Crypt::decrypt($id);
 
-        if($request->hasFile('profile_photos')){
+        if($request->hasFile('foto')){
             $fotoPath = $request->file('foto')->store('profile_photos', 'public');
-            $validasi['foto'] = $fotoPath;
+            $validasi['profile_photos'] = $fotoPath;
         }
 
         User::where('id', $id)->update($validasi);

@@ -133,7 +133,7 @@
                                 <span class="input-group-text">ID (+62)</span>
                                 <input type="text" id="no_handphone" name="no_handphone"
                                     class="form-control phone-number-mask" placeholder="Masukan No HP"
-                                    value="202 555 0111" />
+                                     />
                             </div>
                         </div>
 
