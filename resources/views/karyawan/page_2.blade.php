@@ -38,6 +38,7 @@
                     <th>Tahun Lulus</th>
                     <th>Pilihan</th>
                     <th>Aksi</th>
+                    <th>Export</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,6 +65,21 @@
                                         <i class="ti ti-trash me-1"></i> Delete
                                     </button>
                                 </form>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="ti ti-dots-vertical"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <button class="dropdown-item">
+                                    <i class="ti ti-cell me-1"></i> CSV
+                                </button>
+                                    <button class="dropdown-item">
+                                        <i class="ti ti-book me-1"></i> PDF
+                                    </button>
                             </div>
                         </div>
                     </td>
