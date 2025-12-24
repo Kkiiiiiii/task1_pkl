@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Educate;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class EducateController extends Controller
@@ -15,7 +16,7 @@ class EducateController extends Controller
     public function index()
     {
         //
-        $educates = Educate::all();
+        $educates = Educate::where('users_id',auth()->user()->id)->paginate(4);
         return view('karyawan.page_2', compact('educates'));
     }
 

@@ -49,13 +49,13 @@
             <li class="menu-item {{ request()->routeIs('page2') ? 'active' : '' }}">
               <a href="{{ route('page2') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
-                <div data-i18n="Page 2">Education</div>
+                <div data-i18n="Page 2">Data Pendidikan</div>
               </a>
             </li>
             <li class="menu-item {{ request()->routeIs('profile') ? 'active' : '' }}">
               <a href="{{ route('profile') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-app-window"></i>
-                <div data-i18n="Page 2">Main Profile</div>
+                <i class="menu-icon tf-icons ti ti-user"></i>
+                <div data-i18n="Page 2">Profil Utama</div>
               </a>
             </li>
           </ul>

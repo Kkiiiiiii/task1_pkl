@@ -147,10 +147,13 @@
                 </div>
 
                 @endforeach
+                {{ $educates->links() }}
             </tbody>
         </table>
     </div>
 </div>
+
+
 
 <div class="modal fade" id="tambahdata" tabindex="-1">
     <div class="modal-dialog modal-lg modal-simple">

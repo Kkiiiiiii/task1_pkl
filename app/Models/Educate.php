@@ -14,4 +14,9 @@ class Educate extends Model
         'tahun_lulus',
         'pilihan',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
 }
