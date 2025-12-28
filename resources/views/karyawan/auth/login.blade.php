@@ -140,7 +140,7 @@
             <h4 class="mb-1">Welcome to ESMS! 👋</h4>
             <p class="mb-6">Please sign-in your account and start the adventure</p>
 
-            <form id="formAuthentication" class="mb-4" action="{{ route('login') }}" method="POST">
+            <form id="formAuthentication" class="mb-4" action="{{ route('loginPost') }}" method="POST">
                 @csrf
                 <div class="mb-6">
                   <label for="email" class="form-label">Email</label>
@@ -149,7 +149,7 @@
                     class="form-control"
                     id="email"
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder="Masukan Email Anda"
                     autofocus />
                 </div>
                 <div class="mb-6 form-password-toggle">

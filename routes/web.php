@@ -5,11 +5,13 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\EducateController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/auth/login', [AuthController::class, 'loginIndex'])->name('loginIndex');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/auth/login', [AuthController::class, 'loginIndex'])->name('login');
+Route::post('/auth/login', [AuthController::class, 'login'])->name('loginPost');
+
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register/post', [AuthController::class, 'regis'])->name('regis-post');
+Route::post('/register', [AuthController::class, 'regis'])->name('regisPost');
 
 Route::middleware(['Autentikasi'])->group(function () {
     Route::get('/', [BerandaController::class, 'index'])->name('dashboard');

@@ -97,16 +97,15 @@
                           <li>
                               @if (Auth::check())
                                   <div class="d-grid px-2 pt-2 pb-1">
-                                    <a href="#"
-                                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger d-flex">
-                                  <small class="align-middle">Logout</small>
-                                  <i class="ti ti-logout ms-2 ti-14px"></i>
-                                </a>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn-sm btn-danger d-flex w-100">
+            <small class="align-middle">Logout</small>
+            <i class="ti ti-logout ms-2 ti-14px"></i>
+        </button>
+    </form>
+</div>
 
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                  @csrf
-                              </form>
-                                  </div>
                               @endif
                           </li>
                       </ul>

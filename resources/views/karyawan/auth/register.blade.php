@@ -54,12 +54,12 @@
                     <h4 class="mb-2 text-center">Registrasi</h4>
                     <p class="mb-5 text-center">Lengkapi data dengan benar</p>
 
-                    <form action="{{ route('regis-post') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('regisPost') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" name="nama_lengkap">
+                                <input type="text" class="form-control" name="nama_lengkap" placeholder="Masukan Nama Lengkap">
                             </div>
 
                             <div class="col-md-6">
@@ -74,7 +74,7 @@
 
                             <div class="col-md-6">
                                 <label class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" placeholder="Masukan Email anda">
                             </div>
 
                             <div class="col-md-6">
@@ -87,7 +87,7 @@
 
                             <div class="col-md-6">
                                 <label class="form-label">Nama Ibu Kandung</label>
-                                <input type="text" class="form-control" name="nama_ibu_kandung">
+                                <input type="text" class="form-control" name="nama_ibu_kandung" placeholder="Nama Ibu">
                             </div>
 
                             <div class="col-md-6">
