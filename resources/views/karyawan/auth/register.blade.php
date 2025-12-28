@@ -56,7 +56,6 @@
 
                     <form action="{{ route('regis-post') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label">Nama Lengkap</label>
