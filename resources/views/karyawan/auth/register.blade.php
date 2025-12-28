@@ -141,7 +141,7 @@
                         <button class="btn btn-primary w-100 mt-4">Daftar</button>
                         <p class="text-center my-3">
                             <span>Sign In Instead</span>
-                            <a href="{{ route('loginIndex') }}">
+                            <a href="{{ route('login') }}">
                                 <span>Sign In</span>
                             </a>
                         </p>
