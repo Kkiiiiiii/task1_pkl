@@ -46,7 +46,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama_lengkap . '!');
         }
 
-        return redirect()->route('loginIndex')->with('error', 'Username atau Password salah.');
+        return redirect()->route('login')->with('error', 'Username atau Password salah.');
     }
 
     /**
@@ -77,7 +77,7 @@ class AuthController extends Controller
 
     Auth::login($user);
 
-    return redirect()->route('loginIndex')->with('success','Registrasi Berhasil, Silahkan Login!');
+    return redirect()->route('login')->with('success','Registrasi Berhasil, Silahkan Login!');
     }
 
     public function logout(Request $request)
