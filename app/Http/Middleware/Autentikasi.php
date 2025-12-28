@@ -17,7 +17,7 @@ class Autentikasi
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::check()){
-            return redirect()->route('loginIndex');
+            return redirect()->route('login');
         }
         return $next($request);
     }
