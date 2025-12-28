@@ -41,6 +41,8 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($validasi)) {
+            $request->session()->regenerate();
+
             $user = Auth::user();
 
             return redirect()->route('dashboard')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama_lengkap . '!');
@@ -83,6 +85,9 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+         $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/auth/login')->with('success', 'Anda telah logout.');
     }
 
