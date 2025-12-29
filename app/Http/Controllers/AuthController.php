@@ -45,7 +45,7 @@ class AuthController extends Controller
 
             $user = Auth::user();
 
-            return redirect()->route('dashboard')->with('success', 'Login berhasil. Selamat datang, ' . $user->nama_lengkap . '!');
+            return redirect()->intended(route('dashboard'))->with('success', 'Login berhasil. Selamat datang, ' . $user->nama_lengkap . '!');
         }
 
         return redirect()->route('login')->with('error', 'Username atau Password salah.');
