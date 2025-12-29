@@ -12,6 +12,13 @@
              </ul>
          </div>
      @endif
+
+     @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
           <div class="card">
             <h5 class="card-header">Profile</h5>
             <div class="card-body">
@@ -96,7 +103,7 @@
                                 <div class="form-check mb-2">
                                     <input type="radio" class="form-check-input" id="belum_menikah" name="status_perkawinan" value="belum_menikah"
                                     {{ $user->status_perkawinan == 'belum_menikah' ? 'checked' : '' }}
-                                        required checked/>
+                                        required />
                                 <label class="form-check-label" for="belum_menikah">Belum Menikah</label>
                           </div>
                   <div class="valid-feedback">Looks good!</div>
@@ -115,7 +122,7 @@
 
 
                       required
-                      checked />
+                       />
                     <label class="form-check-label" for="bs-validation-radio-male">Laki laki</label>
                   </div>
                   <div class="form-check">
