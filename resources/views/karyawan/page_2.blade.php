@@ -43,12 +43,12 @@
 
             <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <a href="{{ route('export.pdf') }}" target="_blank" class="dropdown-item">
+                    <a href="{{ secure_url(route('export.pdf')) }}"  class="dropdown-item">
                         <i class="ti ti-file-text me-1"></i> PDF
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('export.csv') }}" target="_blank" class="dropdown-item">
+                    <a href="{{ secure_url(route('export.csv')) }}"  class="dropdown-item">
                         <i class="ti ti-file-spreadsheet me-1"></i> Excel
                     </a>
                 </li>
