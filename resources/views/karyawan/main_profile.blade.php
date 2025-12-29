@@ -24,7 +24,7 @@
                     class="form-control"
                     id="bs-validation-name"
                     name="nama_lengkap"
-                    value="{{ Auth::user()->nama_lengkap }}"
+                    value="{{ $user->nama_lengkap }}"
                     required />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Please enter your name.</div>
@@ -36,7 +36,7 @@
                     <input
                       type="no_ktp"
                       id="bs-validation-no_ktp"
-                    value="{{ Auth::user()->no_ktp }}"
+                    value="{{ $user->no_ktp }}"
                     name="no_ktp"
                       class="form-control"
                       required />
@@ -53,7 +53,7 @@
                     id="bs-validation-Alamat"
                     class="form-control"
                     name="alamat"
-                    value="{{ Auth::user()->alamat }}"
+                    value="{{ $user->alamat }}"
                     required />
                     <div class="valid-feedback">Looks good!</div>
                     <div class="invalid-feedback">Please enter a valid Alamat</div>
@@ -66,7 +66,7 @@
                     id="bs-validation-email"
                     class="form-control"
                     name="email"
-                    value="{{ Auth::user()->email }}"
+                    value="{{ $user->email }}"
                     required />
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Please enter a valid email</div>
@@ -82,20 +82,22 @@
                       name="no_handphone"
                       class="form-control phone-number-mask"
                       placeholder="202 555 0111"
-                      value="{{ Auth::user()->no_handphone }}" />
+                      value="{{ $user->no_handphone }}" />
                   </div>
                 </div>
 
                 <div class="mb-6">
                   <div class="form-check mb-2">
-                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan" value="menikah"
+                                    <input type="radio" class="form-check-input" id="menikah" name="status_perkawinan" value="menikah"
+                                    {{ $user->status_perkawinan == 'menikah' ? 'checked' : '' }}
                                        required checked/>
-                                <label class="form-check-label" for="status_perkawinan">Menikah</label>
+                                <label class="form-check-label" for="menikah">Menikah</label>
                           </div>
                                 <div class="form-check mb-2">
-                                    <input type="radio" class="form-check-input" id="status_perkawinan" name="status_perkawinan" value="belum_menikah"
+                                    <input type="radio" class="form-check-input" id="belum_menikah" name="status_perkawinan" value="belum_menikah"
+                                    {{ $user->status_perkawinan == 'belum_menikah' ? 'checked' : '' }}
                                         required checked/>
-                                <label class="form-check-label" for="status_perkawinan">Belum Menikah</label>
+                                <label class="form-check-label" for="belum_menikah">Belum Menikah</label>
                           </div>
                   <div class="valid-feedback">Looks good!</div>
                   <div class="invalid-feedback">Please Enter Status Perkawinan</div>
@@ -109,7 +111,7 @@
                       name="jenis_kelamin"
                       class="form-check-input"
                       value="laki-laki"
-                    {{ Auth::user()->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
+                    {{  $user->jenis_kelamin == 'laki-laki' ? 'checked' : '' }}
 
 
                       required
@@ -123,14 +125,14 @@
                       name="jenis_kelamin"
                       class="form-check-input"
                     value="perempuan"
-                    {{ Auth::user()->jenis_kelamin == 'perempuan' ? 'checked' : '' }}
+                    {{  $user->jenis_kelamin == 'perempuan' ? 'checked' : '' }}
                       required />
                     <label class="form-check-label" for="perempuan">Perempuan</label>
                   </div>
                 </div>
                 <div class="mb-6">
                   <label class="form-label" for="bs-validation-upload-file">Foto Profile</label>
-                  <img src="{{ asset('storage/' . Auth::user()->foto) }}" width="100" class="mb-2 img-thumbnail rounded-circle border"/>
+                  <img src="{{ asset('storage/' . $user->foto) }}" width="100" class="mb-2 img-thumbnail rounded-circle border"/>
                   <input type="file" class="form-control" id="bs-validation-upload-file" name="foto"/>
                 </div>
 
@@ -141,7 +143,7 @@
                     class="form-control"
                     id="bs-validation-nama_ibu_kandung"
                     name="nama_ibu_kandung"
-                    value="{{ Auth::user()->nama_ibu_kandung }}"
+                    value="{{ $user->nama_ibu_kandung }}"
                     required></input>
                 </div>
                 <div class="row">

@@ -25,8 +25,8 @@ class AuthController extends Controller
 
     public function profile()
     {
-        $data['user'] = User::all();
-        return view('karyawan.main_profile', $data);
+        $user = User::find(Auth::user()->id);
+        return view('karyawan.main_profile', compact('user'));
     }
 
     /**
