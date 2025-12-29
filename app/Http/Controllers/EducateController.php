@@ -66,8 +66,6 @@ class EducateController extends Controller
         $pdf = Pdf::loadView('karyawan.export_pdf', compact('educates'))->setPaper('A4','potrait');
 
         return $pdf->download('data-pendidikan.pdf');
-
-
     }
 
     public function ExportCsv()
