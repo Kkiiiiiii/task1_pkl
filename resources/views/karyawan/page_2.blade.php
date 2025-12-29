@@ -22,11 +22,8 @@
         @endif
 
         <div class="card">
-            <div class="d-flex justify-content-between align-items-center">
-    <h5 class="card-header mb-0">Data Pendidikan</h5>
-
     <div class="d-flex justify-content-between align-items-center">
-    <h5 class="card-header mb-0">Data Pendidikan</h5>
+        <h5 class="card-header mb-0">Data Pendidikan</h5>
 
     <div class="d-flex align-items-center gap-2 me-4">
         <button
@@ -60,7 +57,6 @@
     </div>
 </div>
 
-</div>
 
 
             <div class="table-responsive text-nowrap">
