@@ -30,7 +30,8 @@
             class="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#tambahdata">
-            Tambah Data
+            Tambah
+            <i class="ti ti-plus me-1"></i>
         </button>
 
         <div class="dropdown">
