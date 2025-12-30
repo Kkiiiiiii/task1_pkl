@@ -17,7 +17,7 @@ class EducateController extends Controller
     public function index()
     {
         //
-        $educates = Educate::where('users_id',auth()->user()->id)->paginate(2);
+        $educates = Educate::where('users_id', auth()->user()->id)->paginate(2);
         return view('karyawan.page_2', compact('educates'));
     }
 
@@ -27,7 +27,6 @@ class EducateController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -46,16 +45,14 @@ class EducateController extends Controller
 
         $validasi['users_id'] = Auth::id();
 
-        Educate::create(
-            [
-                'jenjang_pendidikan' => $validasi['jenjang_pendidikan'],
-                'nama_sekolah' => $validasi['nama_sekolah'],
-                'tahun_masuk' => $validasi['tahun_masuk'],
-                'tahun_lulus' => $validasi['tahun_lulus'],
-                'pilihan' => $validasi['pilihan'],
-                'users_id' => $validasi['users_id'],
-            ]
-            );
+        Educate::create([
+            'jenjang_pendidikan' => $validasi['jenjang_pendidikan'],
+            'nama_sekolah' => $validasi['nama_sekolah'],
+            'tahun_masuk' => $validasi['tahun_masuk'],
+            'tahun_lulus' => $validasi['tahun_lulus'],
+            'pilihan' => $validasi['pilihan'],
+            'users_id' => $validasi['users_id'],
+        ]);
 
         return redirect()->route('page2')->with('success', 'Data pendidikan berhasil disimpan.');
     }
@@ -63,44 +60,42 @@ class EducateController extends Controller
     public function ExportPdf()
     {
         $educates = Educate::where('users_id', auth()->id())->get();
-        $pdf = Pdf::loadView('karyawan.export_pdf', compact('educates'))->setPaper('A4','potrait');
+        $pdf = Pdf::loadView('karyawan.export_pdf', compact('educates'))->setPaper('A4', 'potrait');
 
         return $pdf->download('data-pendidikan.pdf');
     }
 
     public function ExportCsv()
-    {
-        $data = Educate::all();
-        $filename = 'data-pendidikan.csv';
-        $headers = array(
-            "Content-type" => "text/csv",
-            "Content-Disposition" => "attachment; filename=$filename",
-            "Pragma" => "no-cache",
-            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
-            "Expires" => "0"
-        );
+{
+    $data = Educate::all();
 
-        $columns = array('Jenjang Pendidikan', 'Nama Sekolah', 'Tahun Masuk', 'Tahun Lulus', 'Pilihan');
-        $callback = function() use($data, $columns) {
-            $file = fopen('php://output', 'w');
-            fputcsv($file, $columns);
+    return response()->streamDownload(function () use ($data) {
+        $handle = fopen('php://output', 'w');
 
-            foreach ($data as $educate) {
-                $row['Jenjang Pendidikan']  = $educate->jenjang_pendidikan;
-                $row['Nama Sekolah']    = $educate->nama_sekolah;
-                $row['Tahun Masuk']    = $educate->tahun_masuk;
-                $row['Tahun Lulus']  = $educate->tahun_lulus;
-                $row['Pilihan']  = $educate->pilihan;
+        fputcsv($handle, [
+            'Jenjang Pendidikan',
+            'Nama Sekolah',
+            'Tahun Masuk',
+            'Tahun Lulus',
+            'Pilihan'
+        ]);
 
-                fputcsv($file, array($row['Jenjang Pendidikan'], $row['Nama Sekolah'], $row['Tahun Masuk'], $row['Tahun Lulus'], $row['Pilihan']));
-            }
+        foreach ($data as $educate) {
+            fputcsv($handle, [
+                $educate->jenjang_pendidikan,
+                $educate->nama_sekolah,
+                $educate->tahun_masuk,
+                $educate->tahun_lulus,
+                $educate->pilihan
+            ]);
+        }
 
-            fclose($file);
-        };
+        fclose($handle);
+    }, 'data-pendidikan.csv', [
+        'Content-Type' => 'text/csv; charset=UTF-8',
+    ]);
+}
 
-        return response()->stream($callback, 200, $headers);
-
-    }
 
     /**
      * Show the form for editing the specified resource.

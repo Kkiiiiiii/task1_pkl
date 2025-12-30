@@ -5,8 +5,7 @@
     <title>Data Pendidikan</title>
     <style>
         body {
-            font-family: DejaVu Sans, sans-serif;
-            font-size: 12px;
+            font-family: sans-serif;
         }
         table {
             width: 100%;
